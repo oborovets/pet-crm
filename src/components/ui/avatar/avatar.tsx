@@ -1,3 +1,4 @@
+"use client";
 import { Avatar as MUIAvatar, AvatarProps } from "@mui/material";
 
 export default function Avatar(props: AvatarProps) {

@@ -5,6 +5,10 @@ import Providers from "./providers";
 import Navbar from "@/components/ui/navbar";
 
 import "./globals.css";
+import Sidebar from "@/components/ui/sidebar/sidebar";
+import { Box } from "@mui/material";
+
+import { ThemeRegistry } from "../lib/ThemeRegistry";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,10 +35,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>
-          <Navbar />
-          <main>{children}</main>
-        </Providers>
+        <ThemeRegistry>
+          <Providers>
+            <Box sx={{ display: "flex", width: "100vw" }}>
+              <Sidebar />
+              <Box sx={{ width: "100%" }}>
+                <Navbar />
+                {children}
+              </Box>
+            </Box>
+          </Providers>
+        </ThemeRegistry>
       </body>
     </html>
   );
