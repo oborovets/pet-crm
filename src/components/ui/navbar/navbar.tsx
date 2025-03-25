@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 
 import { signIn } from "../../../../auth";
 
-import Button from "../Button";
+import { Button } from "../common";
 import Menu from "../menu";
 
 export default function Navbar({}: Props) {
@@ -14,7 +14,9 @@ export default function Navbar({}: Props) {
         display: "flex",
         justifyContent: "flex-end",
         alignItems: "center",
-        padding: "1% 10%",
+        py: 2,
+        px: 5,
+        backgroundColor: "background.default",
       }}
     >
       <Button

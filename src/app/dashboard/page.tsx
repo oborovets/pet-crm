@@ -7,13 +7,16 @@ import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 import Chart from "@/components/ui/chart/chart";
 import Divider from "@mui/material/Divider";
 import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
+
 export default function Dashboard() {
   return (
     <Box sx={{ display: "flex" }}>
       <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Box sx={{ marginBottom: "20px" }}>
-          <Typography variant="h3">Monitor health of </Typography>
-          <Typography variant="h3">your business</Typography>
+          <Typography variant="h3">
+            Monitor health of {"\n"} your business
+          </Typography>
+
           <Typography variant="body1">
             Control and analyze your data in the easiest way
           </Typography>

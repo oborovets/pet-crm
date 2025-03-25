@@ -5,11 +5,12 @@ import {
   CardHeader,
   CardContent,
   Box,
-  Typography,
   IconButton,
   SvgIconProps,
   Badge,
 } from "@mui/material";
+
+import { Typography } from "../common";
 
 import Link from "next/link";
 
@@ -29,11 +30,11 @@ export default function Card({
   icon: Icon,
 }: Props) {
   const renderButtons = () => (
-    <Box sx={{ padding: "10px" }}>
+    <Box sx={{ padding: 1 }}>
       <Link href="">
         <IconButton>
           {Icon && (
-            <Badge badgeContent={1} color="primary" >
+            <Badge badgeContent={1} color="primary">
               <Icon />
             </Badge>
           )}
@@ -57,7 +58,7 @@ export default function Card({
       <CardHeader
         title={<Typography variant="h6">{headerTitle}</Typography>}
         subheader={
-          <Typography variant="subtitle2">{heaaderSubTitle}</Typography>
+          <Typography variant="subtitle1">{heaaderSubTitle}</Typography>
         }
         action={renderButtons()}
       />
@@ -69,9 +70,7 @@ export default function Card({
         }}
       >
         <Typography variant="h3">{contentTitle}</Typography>
-        <Typography pb={1} variant="body1">
-          {contentSubTitle}
-        </Typography>
+        <Typography variant="body1">{contentSubTitle}</Typography>
       </CardContent>
     </MUICard>
   );

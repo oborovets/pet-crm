@@ -7,7 +7,7 @@ import ThemeToggleButton from "../theme-toggler-button/theme-toggler-button";
 
 export default function Sidebar() {
   const sx = {
-    backgroundColor: "#1f1f1f",
+    backgroundColor: "background.default",
     minWidth: "65px",
     height: "100vh",
     display: "flex",

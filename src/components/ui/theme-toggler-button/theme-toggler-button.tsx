@@ -9,8 +9,8 @@ export default function ThemeToggleButton() {
   const { mode, toggleTheme } = useThemeMode();
 
   return (
-    <Tooltip title="Toggle theme">
-      <IconButton onClick={toggleTheme} color="inherit">
+    <Tooltip title="Toggle theme" placement="right">
+      <IconButton onClick={toggleTheme} color="primary">
         {mode === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
       </IconButton>
     </Tooltip>

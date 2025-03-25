@@ -12,8 +12,6 @@ import {
   Divider,
 } from "@mui/material";
 
-import Avatar from "../avatar";
-
 interface Props {
   isLoading: boolean;
   isAuthenticated: boolean;
@@ -33,16 +31,12 @@ export default function Menu({ isLoading, isAuthenticated, session }: Props) {
     setAnchorEl(null);
   };
 
-  const userImage = session?.user?.image ?? ""; // TODO: Change to some default image
-
   const open = Boolean(anchorEl);
 
   return (
     <>
       <Tooltip title="Account Settings">
-        <IconButton onClick={handleClick}>
-          <Avatar alt="avatar" srcSet={userImage} />
-        </IconButton>
+        <IconButton onClick={handleClick}></IconButton>
       </Tooltip>
       <MUIMenu
         anchorEl={anchorEl}
