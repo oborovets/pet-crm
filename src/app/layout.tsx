@@ -9,6 +9,7 @@ import Sidebar from "@/components/ui/sidebar/sidebar";
 import { Box } from "@mui/material";
 
 import { ThemeRegistry } from "../lib/ThemeRegistry";
+import { ThemeModeProvider } from "@/lib/theme-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,17 +36,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeRegistry>
-          <Providers>
-            <Box sx={{ display: "flex", width: "100vw" }}>
-              <Sidebar />
-              <Box sx={{ width: "100%" }}>
-                <Navbar />
-                {children}
+        <ThemeModeProvider>
+          <ThemeRegistry>
+            <Providers>
+              <Box sx={{ display: "flex" }}>
+                <Sidebar />
+                <Box sx={{ width: "100%" }}>
+                  <Navbar />
+
+                  <Box sx={{ padding: "48px" }}>{children}</Box>
+                </Box>
               </Box>
-            </Box>
-          </Providers>
-        </ThemeRegistry>
+            </Providers>
+          </ThemeRegistry>
+        </ThemeModeProvider>
       </body>
     </html>
   );

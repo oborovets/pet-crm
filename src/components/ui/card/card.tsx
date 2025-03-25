@@ -6,33 +6,72 @@ import {
   CardContent,
   Box,
   Typography,
+  IconButton,
+  SvgIconProps,
+  Badge,
 } from "@mui/material";
 
-import Button from "../Button";
-import Avatar from "../avatar";
+import Link from "next/link";
 
-export default function Card() {
+type Props = {
+  headerTitle: string;
+  heaaderSubTitle: string;
+  contentTitle: string;
+  contentSubTitle?: string;
+  icon?: React.ElementType<SvgIconProps>;
+};
+
+export default function Card({
+  headerTitle,
+  contentTitle,
+  heaaderSubTitle,
+  contentSubTitle,
+  icon: Icon,
+}: Props) {
   const renderButtons = () => (
-    <Box
-      sx={{ display: "flex", flexDirection: "column", width: "100%", gap: 1 }}
-    >
-      <Button variant="contained">Hello</Button>
-      <Button variant="outlined">World</Button>
+    <Box sx={{ padding: "10px" }}>
+      <Link href="">
+        <IconButton>
+          {Icon && (
+            <Badge badgeContent={1} color="primary" >
+              <Icon />
+            </Badge>
+          )}
+        </IconButton>
+      </Link>
     </Box>
   );
 
   return (
-    <MUICard sx={{ width: "25%", borderRadius: "15px" }}>
+    <MUICard
+      elevation={8}
+      sx={{
+        minWidth: "300px",
+        width: "370px",
+        maxWidth: "450px",
+        borderRadius: "10px",
+        padding: "12px",
+      }}
+    >
+      {/* FIXME: FIX THIS Pixels in action prop */}
       <CardHeader
-        title={<Typography>Profile</Typography>}
-        subheader={<Typography>Your stats</Typography>}
-        avatar={<Avatar />}
+        title={<Typography variant="h6">{headerTitle}</Typography>}
+        subheader={
+          <Typography variant="subtitle2">{heaaderSubTitle}</Typography>
+        }
         action={renderButtons()}
       />
-      <CardContent>
-        <Typography>Tracked Hours: 12</Typography>
-        <Typography>Active Projects: 3</Typography>
-        <Typography>Finished Projects: 10</Typography>
+      <CardContent
+        sx={{
+          display: "flex",
+          alignItems: "end",
+          gap: 2,
+        }}
+      >
+        <Typography variant="h3">{contentTitle}</Typography>
+        <Typography pb={1} variant="body1">
+          {contentSubTitle}
+        </Typography>
       </CardContent>
     </MUICard>
   );
