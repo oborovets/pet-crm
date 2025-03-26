@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import MenuIcon from "@mui/icons-material/Menu";
-
+import AddModeratorIcon from "@mui/icons-material/AddModerator";
 import { Button } from "../common";
 
 import ThemeToggleButton from "../theme-toggler-button/theme-toggler-button";
@@ -77,10 +77,20 @@ export default function Sidebar() {
       >
         <Button
           asLink
+          href="/"
+          tooltipText="Root Page"
+          asIconButton={!isSidebarOpen}
+          icon={DashboardIcon}
+          isTooltipVisible={!isSidebarOpen}
+        >
+          Root Page
+        </Button>
+        <Button
+          asLink
           href="/dashboard"
           tooltipText="Dashboard"
           asIconButton={!isSidebarOpen}
-          icon={DashboardIcon}
+          icon={AddModeratorIcon}
           isTooltipVisible={!isSidebarOpen}
         >
           Dashboard
