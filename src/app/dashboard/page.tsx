@@ -1,22 +1,19 @@
-import Card from "@/components/ui/card";
-import { Typography, Box } from "@mui/material";
-
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import CheckIcon from "@mui/icons-material/Check";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
-import Chart from "@/components/ui/chart/chart";
-import Divider from "@mui/material/Divider";
-import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
+import EventIcon from "@mui/icons-material/Event";
+import Card from "@/components/ui/card";
+import { RecentActivities } from "@/components/ui/recent-activities/recent-activities";
+
+import { Box, Typography } from "@/components/ui/common";
 
 export default function Dashboard() {
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", gap: 7 }}>
       <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Box sx={{ marginBottom: "20px" }}>
-          <Typography variant="h3">
-            Monitor health of {"\n"} your business
-          </Typography>
-
+          <Typography variant="h3">Monitor health of</Typography>
+          <Typography variant="h3">your business</Typography>
           <Typography variant="body1">
             Control and analyze your data in the easiest way
           </Typography>
@@ -25,7 +22,7 @@ export default function Dashboard() {
           sx={{
             display: "flex",
             justifyContent: "flex-start",
-            gap: 10,
+            gap: 7,
             marginBottom: "20px",
             width: "75%",
           }}
@@ -48,32 +45,15 @@ export default function Dashboard() {
             contentSubTitle="+1 since last week"
             icon={CheckIcon}
           />
-        </Box>
-        <Box sx={{ width: "75%" }}>
-          <Chart />
+          <Card
+            headerTitle="Upcoming Tasks"
+            contentTitle="3"
+            contentSubTitle="2 due today"
+            icon={EventIcon}
+          />
         </Box>
       </Box>
-      <Box
-        sx={{
-          border: "1px solid black",
-          width: "100%",
-          borderRadius: "10px",
-          padding: "10px",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "10px",
-          }}
-        >
-          <Typography variant="h5">Recent Acivities</Typography>
-          <NotificationsActiveOutlinedIcon />
-        </Box>
-        <Divider />
-      </Box>
+      <RecentActivities />
     </Box>
   );
 }

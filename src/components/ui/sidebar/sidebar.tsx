@@ -1,55 +1,90 @@
-import Link from "next/link";
-import { Box, IconButton, Tooltip } from "@mui/material";
-import ModeNightIcon from "@mui/icons-material/ModeNight";
+"use client";
+import { useState, useRef, useEffect } from "react";
+import { Box } from "@mui/material";
+
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import SettingsIcon from "@mui/icons-material/Settings";
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import MenuIcon from "@mui/icons-material/Menu";
+
+import { Button } from "../common";
+
 import ThemeToggleButton from "../theme-toggler-button/theme-toggler-button";
 
 export default function Sidebar() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   const sx = {
-    backgroundColor: "background.default",
-    minWidth: "65px",
-    height: "100vh",
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
     justifyContent: "space-around",
+    alignItems: "start",
+    backgroundColor: "background.default",
+    height: "100vh",
     borderRight: "1px solid white",
+    px: 1,
   };
 
+  const drawerSX = {
+    position: "fixed",
+    transition: "width 0.3s ease",
+    overflowX: "hidden",
+  };
+
+  useEffect(() => {
+    if (ref.current) {
+      const el = ref.current;
+      if (isSidebarOpen) {
+        el.style.width = `${el.scrollWidth}px`;
+      } else {
+        el.style.width = "64px";
+      }
+    }
+  }, [isSidebarOpen]);
+
+  const onToggleSidebar = () => setIsSidebarOpen((prev) => !prev);
+
+  const text = isSidebarOpen ? "Hide" : "Show";
+  const Icon = isSidebarOpen ? MenuOpenIcon : MenuIcon;
+
   return (
-    <Box sx={sx}>
-      <Box>
-        <ThemeToggleButton />
+    <Box ref={ref} sx={{ ...sx, ...drawerSX }}>
+      <Box
+        sx={{ display: "flex", flexDirection: "column", width: "100%", gap: 2 }}
+      >
+        <Button
+          onClick={onToggleSidebar}
+          tooltipText={text}
+          asIconButton={!isSidebarOpen}
+          icon={Icon}
+          isTooltipVisible={!isSidebarOpen}
+        >
+          {text}
+        </Button>
+        <ThemeToggleButton
+          asIconButton={!isSidebarOpen}
+          isTooltipVisible={!isSidebarOpen}
+        />
       </Box>
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
+          alignItems: "start",
           minHeight: "200px",
         }}
       >
-        <Link href="/dashboard">
-          <Tooltip title="Dashboard" placement="right">
-            <IconButton>
-              <DashboardIcon color="primary" />
-            </IconButton>
-          </Tooltip>
-        </Link>
-        <IconButton>
-          <ModeNightIcon color="primary" />
-        </IconButton>
-        <IconButton>
-          <ModeNightIcon color="primary" />
-        </IconButton>
-      </Box>
-      <Box>
-        <Tooltip title="Settings" placement="right">
-          <IconButton>
-            <SettingsIcon color="primary" />
-          </IconButton>
-        </Tooltip>
+        <Button
+          asLink
+          href="/dashboard"
+          tooltipText="Dashboard"
+          asIconButton={!isSidebarOpen}
+          icon={DashboardIcon}
+          isTooltipVisible={!isSidebarOpen}
+        >
+          Dashboard
+        </Button>
       </Box>
     </Box>
   );

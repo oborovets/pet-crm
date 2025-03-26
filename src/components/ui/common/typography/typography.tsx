@@ -6,8 +6,26 @@ type Props = {
     "h6" | "h5" | "h3" | "subtitle1" | "body1" | "body2"
   >;
   children: React.ReactNode;
+  visibility?: TypographyProps["visibility"];
+  sx?: TypographyProps["sx"];
+  color?: TypographyProps["color"];
 };
 
-export default function Typography({ variant, children }: Props) {
-  return <MUITypography variant={variant}>{children}</MUITypography>;
+export default function Typography({
+  variant,
+  children,
+  visibility = "visible",
+  sx,
+  color = "inherit",
+}: Props) {
+  return (
+    <MUITypography
+      visibility={visibility}
+      color={color}
+      variant={variant}
+      sx={sx}
+    >
+      {children}
+    </MUITypography>
+  );
 }

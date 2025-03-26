@@ -30,12 +30,27 @@ export default function Card({
   icon: Icon,
 }: Props) {
   const renderButtons = () => (
-    <Box sx={{ padding: 1 }}>
+    <Box
+      sx={{
+        padding: 1,
+      }}
+    >
       <Link href="">
         <IconButton>
           {Icon && (
-            <Badge badgeContent={1} color="primary">
-              <Icon />
+            <Badge
+              sx={{
+                "& .MuiBadge-badge": {
+                  fontSize: "0.7rem",
+                  height: "18px",
+                  minWidth: "18px",
+                  padding: "0 6px",
+                },
+              }}
+              badgeContent={1}
+              color="primary"
+            >
+              <Icon fontSize="large" />
             </Badge>
           )}
         </IconButton>
@@ -47,14 +62,18 @@ export default function Card({
     <MUICard
       elevation={8}
       sx={{
-        minWidth: "300px",
-        width: "370px",
-        maxWidth: "450px",
+        minWidth: "250px",
+        maxWidth: "350px",
         borderRadius: "10px",
-        padding: "12px",
+        padding: 1.5,
+        transition: "all 0.3s ease",
+        cursor: "pointer",
+        "&:hover": {
+          transform: "translateY(-4px)",
+          boxShadow: 6,
+        },
       }}
     >
-      {/* FIXME: FIX THIS Pixels in action prop */}
       <CardHeader
         title={<Typography variant="h6">{headerTitle}</Typography>}
         subheader={

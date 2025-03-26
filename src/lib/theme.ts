@@ -4,11 +4,15 @@ const baseTheme = createTheme();
 
 const darkTheme = createTheme({
   ...baseTheme,
+  shape: {
+    ...baseTheme.shape,
+    borderRadius: 10,
+  },
   palette: {
     ...baseTheme.palette,
     mode: "dark",
     primary: {
-      main: "#90caf9", // світло-блакитний (MUI default)
+      main: "#ddd", // світло-блакитний (MUI default)
       contrastText: "#0d1117",
     },
     secondary: {
@@ -16,7 +20,7 @@ const darkTheme = createTheme({
       contrastText: "#0d1117",
     },
     background: {
-      default: "#0d1117", // темно-сірий/майже чорний
+      default: "#141b2e", // темно-сірий/майже чорний
       paper: "#161b22", // трохи світліший, для карток
     },
     text: {
@@ -43,12 +47,16 @@ const darkTheme = createTheme({
 
 const lightTheme = createTheme({
   ...baseTheme,
+  shape: {
+    ...baseTheme.shape,
+    borderRadius: 10,
+  },
   palette: {
     ...baseTheme.palette, // наслідуємо всі кольори
 
     mode: "light",
     primary: {
-      main: "#1976d2", // фірмовий MUI-синій, можна змінити
+      main: "#141b2e", // фірмовий MUI-синій, можна змінити
       contrastText: "#ffffff",
     },
     secondary: {
@@ -56,7 +64,7 @@ const lightTheme = createTheme({
       contrastText: "#ffffff",
     },
     background: {
-      default: "#f4f6f8", // світло-сірий бекграунд всієї сторінки
+      default: "#aaa", // світло-сірий бекграунд всієї сторінки
       paper: "#ffffff", // білий бекграунд карток, модалок
     },
     text: {

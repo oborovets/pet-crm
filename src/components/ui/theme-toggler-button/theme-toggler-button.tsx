@@ -1,18 +1,30 @@
 "use client";
 
-import { IconButton, Tooltip } from "@mui/material";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { useThemeMode } from "@/lib/theme-context";
+import { Button } from "../common";
 
-export default function ThemeToggleButton() {
+export default function ThemeToggleButton({
+  asIconButton = false,
+  isTooltipVisible = false,
+}: {
+  asIconButton?: boolean;
+  isTooltipVisible?: boolean;
+}) {
   const { mode, toggleTheme } = useThemeMode();
+  const isDark = mode === "dark";
+  const text = isDark ? "Light" : "Dark";
 
   return (
-    <Tooltip title="Toggle theme" placement="right">
-      <IconButton onClick={toggleTheme} color="primary">
-        {mode === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
-      </IconButton>
-    </Tooltip>
+    <Button
+      tooltipText={text}
+      asIconButton={asIconButton}
+      onClick={toggleTheme}
+      icon={isDark ? LightModeIcon : DarkModeIcon}
+      isTooltipVisible={isTooltipVisible}
+    >
+      {text}
+    </Button>
   );
 }
