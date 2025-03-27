@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import { CacheProvider } from "@emotion/react";
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import { emotionCache, useThemeMode } from ".";
+import * as React from 'react';
+import { CacheProvider } from '@emotion/react';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+import { emotionCache, useThemeMode } from '.';
 
-import createEmotionServer from "@emotion/server/create-instance";
-import { useServerInsertedHTML } from "next/navigation";
+import createEmotionServer from '@emotion/server/create-instance';
+import { useServerInsertedHTML } from 'next/navigation';
 
-import { darkTheme, lightTheme } from "./theme";
+import { darkTheme, lightTheme } from './theme';
 
 export default function ThemeRegistry({
   children,
@@ -22,19 +22,19 @@ export default function ThemeRegistry({
     createEmotionServer(cache);
 
   useServerInsertedHTML(() => {
-    const chunks = extractCriticalToChunks("");
+    const chunks = extractCriticalToChunks('');
     return (
       <style
         data-emotion={`css ${chunks.styles
           .map((style) => style.key)
-          .join(" ")}`}
+          .join(' ')}`}
         dangerouslySetInnerHTML={{
           __html: constructStyleTagsFromChunks(chunks),
         }}
       />
     );
   });
-  const theme = mode === "dark" ? darkTheme : lightTheme;
+  const theme = mode === 'dark' ? darkTheme : lightTheme;
   return (
     <CacheProvider value={cache}>
       <ThemeProvider theme={theme}>

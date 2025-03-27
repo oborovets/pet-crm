@@ -1,6 +1,6 @@
-"use client";
-import { ReactNode, useCallback, useState } from "react";
-import Link from "next/link";
+'use client';
+import { ReactNode, useCallback, useState } from 'react';
+import Link from 'next/link';
 import {
   Box,
   Button,
@@ -8,24 +8,24 @@ import {
   Tooltip,
   TooltipProps,
   SvgIconProps,
-} from "@mui/material";
+} from '@mui/material';
 
 type BaseProps = {
   tooltipText?: string;
   children?: string | ReactNode;
   isTooltipVisible?: boolean;
-  placement?: TooltipProps["placement"];
+  placement?: TooltipProps['placement'];
   icon?: React.ComponentType<SvgIconProps>;
   asIconButton?: boolean;
 };
 
 type ConditionalProps =
-  | { asLink: true; href: string; onClick?: never; type?: "button" }
+  | { asLink: true; href: string; onClick?: never; type?: 'button' }
   | {
       asLink?: false;
       href?: never;
       onClick?: () => void;
-      type?: "submit" | "button";
+      type?: 'submit' | 'button';
     };
 
 type Props = BaseProps & ConditionalProps;
@@ -35,11 +35,11 @@ export default function LinkComponent({
   tooltipText,
   children,
   isTooltipVisible = false,
-  placement = "right",
+  placement = 'right',
   icon: Icon,
   asLink = false,
   asIconButton = false,
-  type = "button",
+  type = 'button',
   onClick,
 }: Props) {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
@@ -48,9 +48,9 @@ export default function LinkComponent({
     () => (
       <Box
         sx={{
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
         }}
       >
         <Tooltip
@@ -60,10 +60,10 @@ export default function LinkComponent({
           slotProps={{
             tooltip: {
               sx: {
-                borderRadius: "5px",
+                borderRadius: '5px',
                 py: 0.7,
-                bgcolor: "primary.main",
-                color: "background.default",
+                bgcolor: 'primary.main',
+                color: 'background.default',
               },
             },
           }}
@@ -74,7 +74,7 @@ export default function LinkComponent({
             </IconButton>
           ) : (
             <Button
-              sx={{ display: "flex", justifyContent: "flex-start", px: 2 }}
+              sx={{ display: 'flex', justifyContent: 'flex-start', px: 2 }}
               size="medium"
               fullWidth
               onClick={onClick}
@@ -113,21 +113,21 @@ export default function LinkComponent({
         }
       }}
       sx={{
-        transition: "backgroundColor .3s ease",
-        color: "white",
-        width: "100%",
+        transition: 'backgroundColor .3s ease',
+        color: 'white',
+        width: '100%',
         borderRadius: 1,
         pr: 1,
-        "&:hover": {},
-        "&:hover > *": {
-          transition: "color .4s ease",
+        '&:hover': {},
+        '&:hover > *': {
+          transition: 'color .4s ease',
         },
       }}
     >
       {asLink && href ? (
         <Link
           href={href}
-          style={{ width: "100%", display: "flex", alignItems: "center" }}
+          style={{ width: '100%', display: 'flex', alignItems: 'center' }}
         >
           {core()}
         </Link>

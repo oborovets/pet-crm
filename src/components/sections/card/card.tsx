@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Card as MUICard,
@@ -8,11 +8,11 @@ import {
   IconButton,
   SvgIconProps,
   Badge,
-} from "@mui/material";
+} from '@mui/material';
 
-import { Typography } from "../../common";
+import { Typography } from '../../common';
 
-import Link from "next/link";
+import Link from 'next/link';
 
 type Props = {
   headerTitle: string;
@@ -40,11 +40,11 @@ export default function Card({
           {Icon && (
             <Badge
               sx={{
-                "& .MuiBadge-badge": {
-                  fontSize: "0.7rem",
-                  height: "18px",
-                  minWidth: "18px",
-                  padding: "0 6px",
+                '& .MuiBadge-badge': {
+                  fontSize: '0.7rem',
+                  height: '18px',
+                  minWidth: '18px',
+                  padding: '0 6px',
                 },
               }}
               badgeContent={1}
@@ -62,14 +62,14 @@ export default function Card({
     <MUICard
       elevation={8}
       sx={{
-        minWidth: "250px",
-        maxWidth: "350px",
-        borderRadius: "10px",
+        minWidth: '250px',
+        maxWidth: '350px',
+        borderRadius: '10px',
         padding: 1.5,
-        transition: "all 0.3s ease",
-        cursor: "pointer",
-        "&:hover": {
-          transform: "translateY(-4px)",
+        transition: 'all 0.3s ease',
+        cursor: 'pointer',
+        '&:hover': {
+          transform: 'translateY(-4px)',
           boxShadow: 6,
         },
       }}
@@ -83,8 +83,8 @@ export default function Card({
       />
       <CardContent
         sx={{
-          display: "flex",
-          alignItems: "end",
+          display: 'flex',
+          alignItems: 'end',
           gap: 2,
         }}
       >

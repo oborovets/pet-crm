@@ -1,4 +1,4 @@
-import { Avatar as MUIAvatar } from "@mui/material";
+import { Avatar as MUIAvatar } from '@mui/material';
 
 type Props = {
   alt?: string;
@@ -6,5 +6,5 @@ type Props = {
 };
 
 export default function Avatar({ alt, src }: Props) {
-  return <MUIAvatar alt={alt ?? "avatar"} src={src} />;
+  return <MUIAvatar alt={alt ?? 'avatar'} src={src} />;
 }

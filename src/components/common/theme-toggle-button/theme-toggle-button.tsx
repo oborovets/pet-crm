@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import LightModeIcon from "@mui/icons-material/LightMode";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import { useThemeMode } from "@/styles";
-import { Button } from "..";
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import { useThemeMode } from '@/styles';
+import { Button } from '..';
 
 export default function ThemeToggleButton({
   asIconButton = false,
@@ -13,8 +13,8 @@ export default function ThemeToggleButton({
   isTooltipVisible?: boolean;
 }) {
   const { mode, toggleTheme } = useThemeMode();
-  const isDark = mode === "dark";
-  const text = isDark ? "Light" : "Dark";
+  const isDark = mode === 'dark';
+  const text = isDark ? 'Light' : 'Dark';
 
   return (
     <Button

@@ -1,4 +1,4 @@
-import { Box as MUIBox, BoxProps } from "@mui/material";
+import { Box as MUIBox, BoxProps } from '@mui/material';
 
 type Props = BoxProps;
 

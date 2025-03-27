@@ -1,8 +1,7 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { signOut } from "next-auth/react";
-
+import { useState } from 'react';
+import { signOut } from 'next-auth/react';
 import {
   Tooltip,
   IconButton,
@@ -10,15 +9,14 @@ import {
   MenuItem,
   Typography,
   Divider,
-} from "@mui/material";
+} from '@mui/material';
 
 interface Props {
   isLoading: boolean;
   isAuthenticated: boolean;
-  session: { user: { name: string; image: string } };
 }
 
-export default function Menu({ isLoading, isAuthenticated, session }: Props) {
+export default function Menu({ isLoading, isAuthenticated }: Props) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   if (isLoading || !isAuthenticated) return null;
@@ -32,7 +30,6 @@ export default function Menu({ isLoading, isAuthenticated, session }: Props) {
   };
 
   const open = Boolean(anchorEl);
-
   return (
     <>
       <Tooltip title="Account Settings">
@@ -43,8 +40,8 @@ export default function Menu({ isLoading, isAuthenticated, session }: Props) {
         open={open}
         onClose={handleClose}
         onClick={handleClose}
-        transformOrigin={{ horizontal: "right", vertical: "top" }}
-        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem onClick={handleClose}>
           <Typography>Profile</Typography>

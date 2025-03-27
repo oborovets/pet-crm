@@ -1,15 +1,15 @@
-"use client";
-import { signIn } from "next-auth/react";
-import { Button } from "../common";
-import { useSearchParams } from "next/navigation";
+'use client';
+import { signIn } from 'next-auth/react';
+import { Button } from '../common';
+import { useSearchParams } from 'next/navigation';
 
 export default function OAuthButtons() {
   const searchParams = useSearchParams();
   return (
     <Button
       onClick={() =>
-        signIn("google", {
-          redirectTo: searchParams.get("callbackUrl") ?? "/dashboard",
+        signIn('google', {
+          redirectTo: searchParams.get('callbackUrl') ?? '/dashboard',
         })
       }
     >

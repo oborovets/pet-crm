@@ -1,16 +1,16 @@
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import CheckIcon from "@mui/icons-material/Check";
-import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
-import EventIcon from "@mui/icons-material/Event";
-import { RecentActivities, Card } from "@/components/sections";
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import CheckIcon from '@mui/icons-material/Check';
+import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+import EventIcon from '@mui/icons-material/Event';
+import { RecentActivities, Card } from '@/components/sections';
 
-import { Box, Typography } from "@/components/common";
+import { Box, Typography } from '@/components/common';
 
 export default function Dashboard() {
   return (
-    <Box sx={{ display: "flex", gap: 7 }}>
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <Box sx={{ marginBottom: "20px" }}>
+    <Box sx={{ display: 'flex', gap: 7 }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Box sx={{ marginBottom: '20px' }}>
           <Typography variant="h3">Monitor health of</Typography>
           <Typography variant="h3">your business</Typography>
           <Typography variant="body1">
@@ -19,11 +19,11 @@ export default function Dashboard() {
         </Box>
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "flex-start",
+            display: 'flex',
+            justifyContent: 'flex-start',
             gap: 7,
-            marginBottom: "20px",
-            width: "75%",
+            marginBottom: '20px',
+            width: '75%',
           }}
         >
           <Card

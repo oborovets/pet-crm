@@ -1,4 +1,4 @@
-import SidebarComponent from "./sidebar";
+import SidebarComponent from './sidebar';
 
 export default function Sidebar() {
   return <SidebarComponent />;

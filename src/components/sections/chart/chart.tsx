@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   LineChart,
@@ -7,15 +7,15 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
-} from "recharts";
+} from 'recharts';
 
 const data = [
-  { name: "Mon", "Hours Per Day": 6, Income: 120 },
-  { name: "Tue", "Hours Per Day": 9, Income: 180 },
-  { name: "Wed", "Hours Per Day": 12, Income: 240 },
-  { name: "Thu", "Hours Per Day": 6, Income: 120 },
-  { name: "Fri", "Hours Per Day": 2, Income: 40 },
-  { name: "Sat", "Hours Per Day": 4, Income: 80 },
+  { name: 'Mon', 'Hours Per Day': 6, Income: 120 },
+  { name: 'Tue', 'Hours Per Day': 9, Income: 180 },
+  { name: 'Wed', 'Hours Per Day': 12, Income: 240 },
+  { name: 'Thu', 'Hours Per Day': 6, Income: 120 },
+  { name: 'Fri', 'Hours Per Day': 2, Income: 40 },
+  { name: 'Sat', 'Hours Per Day': 4, Income: 80 },
 ];
 
 export default function Chart() {

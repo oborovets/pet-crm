@@ -1,13 +1,13 @@
-import { Alert, AlertTitle, Box } from "@mui/material";
-import { Typography } from "@/components/common";
-import LoginComponent from "@/components/ui/login/login";
+import { Alert, AlertTitle, Box } from '@mui/material';
+import { Typography } from '@/components/common';
+import LoginComponent from '@/components/ui/login/login';
 
 type PageProps = {
   searchParams?: Record<string, string | string[]>;
 };
 
 export default function Login({ searchParams }: PageProps) {
-  const isUnauthorized = searchParams?.unauthorized === "true";
+  const isUnauthorized = searchParams?.unauthorized === 'true';
 
   return (
     <Box>
@@ -17,7 +17,7 @@ export default function Login({ searchParams }: PageProps) {
           You must be signed in to view this page. Please log in to continue.
         </Alert>
       )}
-      <Typography sx={{ textAlign: "center", my: 3 }} variant="h3">
+      <Typography sx={{ textAlign: 'center', my: 3 }} variant="h3">
         Login
       </Typography>
       <LoginComponent />
