@@ -6,9 +6,8 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import MenuIcon from "@mui/icons-material/Menu";
 import AddModeratorIcon from "@mui/icons-material/AddModerator";
-import { Button } from "../common";
 
-import ThemeToggleButton from "../theme-toggler-button/theme-toggler-button";
+import { ThemeToggleButton, Button } from "../../common";
 
 export default function Sidebar() {
   const ref = useRef<HTMLDivElement>(null);

@@ -1,5 +1,5 @@
 import { Alert, AlertTitle, Box } from "@mui/material";
-import { Typography } from "@/components/ui/common";
+import { Typography } from "@/components/common";
 import LoginComponent from "@/components/ui/login/login";
 
 type PageProps = {

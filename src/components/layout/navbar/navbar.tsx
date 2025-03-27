@@ -4,11 +4,15 @@ import { Box } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
 import { signOut, signIn } from "next-auth/react";
 
-import { Button, Avatar } from "../common";
+import { Button, Avatar } from "../../common";
 import { useSearchParams } from "next/navigation";
-import type { Session } from "@/types";
+import type { Session } from "../../../types/session";
 
-export default function Navbar({ session }: Session) {
+type Props = {
+  session: Session;
+};
+
+export default function Navbar({ session }: Props) {
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get("callbackUrl") ?? "/";
 

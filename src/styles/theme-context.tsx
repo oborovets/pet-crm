@@ -9,8 +9,8 @@ import {
   useState,
 } from "react";
 import { ThemeProvider } from "@mui/material";
-import { lightTheme, darkTheme } from "./theme";
-import type { ThemeMode } from "@/types/common";
+import { lightTheme, darkTheme } from "../styles/theme";
+import type { ThemeMode } from "@/types/theme";
 
 type ThemeContextValue = {
   mode: ThemeMode;

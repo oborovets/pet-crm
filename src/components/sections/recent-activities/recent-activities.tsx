@@ -1,6 +1,6 @@
 import { Divider, Avatar } from "@mui/material";
 import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
-import { Box, Typography } from "../common";
+import { Box, Typography } from "../../common";
 
 const data = [
   {
@@ -74,7 +74,7 @@ const ActivitiesMessage = ({ sender, message, time, date, isLast }: any) => (
   </Box>
 );
 
-export function RecentActivities() {
+export default function RecentActivities() {
   return (
     <Box
       sx={{

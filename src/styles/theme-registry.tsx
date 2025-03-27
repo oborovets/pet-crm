@@ -3,14 +3,18 @@
 import * as React from "react";
 import { CacheProvider } from "@emotion/react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
-import { emotionCache } from "../lib/emotionCache";
+import { emotionCache, useThemeMode } from ".";
 
 import createEmotionServer from "@emotion/server/create-instance";
 import { useServerInsertedHTML } from "next/navigation";
-import { useThemeMode } from "@/lib/theme-context";
+
 import { darkTheme, lightTheme } from "./theme";
 
-export function ThemeRegistry({ children }: { children: React.ReactNode }) {
+export default function ThemeRegistry({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const { mode } = useThemeMode();
 
   const [cache] = React.useState(() => emotionCache());

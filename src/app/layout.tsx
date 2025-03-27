@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { cookies } from "next/headers";
 
-import Navbar from "@/components/ui/navbar/navbar";
-import Sidebar from "@/components/ui/sidebar/sidebar";
-import { Box } from "@/components/ui/common";
+import Navbar from "@/components/layout/navbar/navbar";
+import Sidebar from "@/components/layout/sidebar/sidebar";
+import { Box } from "@/components/common";
 
 import Providers from "./providers";
 
-import { ThemeRegistry } from "../lib/ThemeRegistry";
-import { ThemeModeProvider } from "@/lib/theme-context";
+import { ThemeRegistry } from "../styles";
+import { ThemeModeProvider } from "@/styles";
 import { auth } from "../../auth";
-import type { ThemeMode } from "@/types/common";
+import type { ThemeMode } from "@/types/theme";
 import "./globals.css";
 
 const geistSans = Geist({

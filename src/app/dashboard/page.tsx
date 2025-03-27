@@ -2,10 +2,9 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import CheckIcon from "@mui/icons-material/Check";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 import EventIcon from "@mui/icons-material/Event";
-import Card from "@/components/ui/card";
-import { RecentActivities } from "@/components/ui/recent-activities/recent-activities";
+import { RecentActivities, Card } from "@/components/sections";
 
-import { Box, Typography } from "@/components/ui/common";
+import { Box, Typography } from "@/components/common";
 
 export default function Dashboard() {
   return (

@@ -10,13 +10,13 @@ import {
   Badge,
 } from "@mui/material";
 
-import { Typography } from "../common";
+import { Typography } from "../../common";
 
 import Link from "next/link";
 
 type Props = {
   headerTitle: string;
-  heaaderSubTitle: string;
+  heaaderSubTitle?: string;
   contentTitle: string;
   contentSubTitle?: string;
   icon?: React.ElementType<SvgIconProps>;

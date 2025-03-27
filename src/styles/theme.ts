@@ -2,7 +2,7 @@ import { createTheme } from "@mui/material/styles";
 
 const baseTheme = createTheme();
 
-const darkTheme = createTheme({
+export const darkTheme = createTheme({
   ...baseTheme,
   shape: {
     ...baseTheme.shape,
@@ -45,7 +45,7 @@ const darkTheme = createTheme({
   },
 });
 
-const lightTheme = createTheme({
+export const lightTheme = createTheme({
   ...baseTheme,
   shape: {
     ...baseTheme.shape,
@@ -88,5 +88,3 @@ const lightTheme = createTheme({
     },
   },
 });
-
-export { darkTheme, lightTheme };

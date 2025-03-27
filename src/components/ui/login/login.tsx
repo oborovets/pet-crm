@@ -1,8 +1,8 @@
 "use client";
 import { Box } from "@mui/material";
 import { useForm, FormProvider } from "react-hook-form";
-import { Button, Input } from "../common";
-import OAuthButtons from "@/components/auth/OAuthButtons";
+import { Button, Input } from "../../common";
+import OAuthButtons from "@/components/auth/oauth-buttons";
 
 type FormValues = {
   email: string;
