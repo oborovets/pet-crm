@@ -5,9 +5,13 @@ import { auth } from "../auth";
 
 export async function middleware(req: NextRequest) {
   const session = await auth();
+  const loginUrl = new URL("/login", req.url);
+
+  loginUrl.searchParams.set("unauthorized", "true");
+  loginUrl.searchParams.set("callbackUrl", req.nextUrl.pathname);
 
   if (!session) {
-    return NextResponse.redirect(new URL("/login?unauthorized=true", req.url));
+    return NextResponse.redirect(loginUrl);
   }
 
   return NextResponse.next();

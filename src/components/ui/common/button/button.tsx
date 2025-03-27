@@ -20,8 +20,13 @@ type BaseProps = {
 };
 
 type ConditionalProps =
-  | { asLink: true; href: string; onClick?: never }
-  | { asLink?: false; href?: never; onClick?: () => void };
+  | { asLink: true; href: string; onClick?: never; type?: "button" }
+  | {
+      asLink?: false;
+      href?: never;
+      onClick?: () => void;
+      type?: "submit" | "button";
+    };
 
 type Props = BaseProps & ConditionalProps;
 
@@ -34,6 +39,7 @@ export default function LinkComponent({
   icon: Icon,
   asLink = false,
   asIconButton = false,
+  type = "button",
   onClick,
 }: Props) {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
@@ -63,7 +69,7 @@ export default function LinkComponent({
           }}
         >
           {asIconButton ? (
-            <IconButton onClick={onClick} color="primary">
+            <IconButton onClick={onClick} color="primary" type={type}>
               {Icon && <Icon color="primary" fontSize="medium" />}
             </IconButton>
           ) : (
@@ -73,6 +79,7 @@ export default function LinkComponent({
               fullWidth
               onClick={onClick}
               startIcon={Icon && <Icon color="primary" />}
+              type={type}
             >
               {children}
             </Button>
@@ -89,6 +96,7 @@ export default function LinkComponent({
       Icon,
       asIconButton,
       children,
+      type,
     ]
   );
 

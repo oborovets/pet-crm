@@ -18,7 +18,7 @@ export function ThemeRegistry({ children }: { children: React.ReactNode }) {
     createEmotionServer(cache);
 
   useServerInsertedHTML(() => {
-    const chunks = extractCriticalToChunks(""); // <- пустий HTML (не document!)
+    const chunks = extractCriticalToChunks("");
     return (
       <style
         data-emotion={`css ${chunks.styles
