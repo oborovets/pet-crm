@@ -3,7 +3,7 @@ import { ReactNode, useCallback, useState } from 'react';
 import Link from 'next/link';
 import {
   Box,
-  Button,
+  Button as MUIButton,
   IconButton,
   Tooltip,
   TooltipProps,
@@ -17,6 +17,8 @@ type BaseProps = {
   placement?: TooltipProps['placement'];
   icon?: React.ComponentType<SvgIconProps>;
   asIconButton?: boolean;
+  loading?: boolean;
+  disabled?: boolean;
 };
 
 type ConditionalProps =
@@ -30,7 +32,7 @@ type ConditionalProps =
 
 type Props = BaseProps & ConditionalProps;
 
-export default function LinkComponent({
+export default function Button({
   href,
   tooltipText,
   children,
@@ -40,6 +42,8 @@ export default function LinkComponent({
   asLink = false,
   asIconButton = false,
   type = 'button',
+  loading,
+  disabled,
   onClick,
 }: Props) {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
@@ -63,7 +67,6 @@ export default function LinkComponent({
                 borderRadius: '5px',
                 py: 0.7,
                 bgcolor: 'primary.main',
-                color: 'background.default',
               },
             },
           }}
@@ -73,7 +76,11 @@ export default function LinkComponent({
               {Icon && <Icon color="primary" fontSize="medium" />}
             </IconButton>
           ) : (
-            <Button
+            <MUIButton
+              color="primary"
+              variant="outlined"
+              disabled={disabled}
+              loading={loading}
               sx={{ display: 'flex', justifyContent: 'flex-start', px: 2 }}
               size="medium"
               fullWidth
@@ -82,7 +89,7 @@ export default function LinkComponent({
               type={type}
             >
               {children}
-            </Button>
+            </MUIButton>
           )}
         </Tooltip>
       </Box>
@@ -97,6 +104,8 @@ export default function LinkComponent({
       asIconButton,
       children,
       type,
+      disabled,
+      loading,
     ]
   );
 
@@ -113,7 +122,7 @@ export default function LinkComponent({
         }
       }}
       sx={{
-        transition: 'backgroundColor .3s ease',
+        // transition: 'background-color .3s ease',
         color: 'white',
         width: '100%',
         borderRadius: 1,

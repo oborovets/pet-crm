@@ -22,13 +22,13 @@ export default function Navbar({ session }: Props) {
     <Box
       component="nav"
       sx={{
+        backgroundColor: '#333',
         borderBottom: '1px solid #fff',
         display: 'flex',
         justifyContent: 'flex-end',
         alignItems: 'center',
         py: 2,
         px: 10,
-        backgroundColor: 'background.default',
       }}
     >
       <Box>

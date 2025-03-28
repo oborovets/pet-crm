@@ -1,0 +1,31 @@
+import { PieChart } from '@mui/x-charts/PieChart';
+
+const data = [
+  { id: 1, color: 'red', label: 'Group A', value: 400 },
+  { id: 2, color: 'blue', label: 'Group B', value: 300 },
+  { id: 3, color: 'green', label: 'Group C', value: 300 },
+];
+
+export default function Chart() {
+  return (
+    <PieChart
+      width={200}
+      height={200}
+      slotProps={{
+        legend: { hidden: true },
+      }}
+      series={[
+        {
+          data,
+          innerRadius: 30,
+          outerRadius: 90,
+          paddingAngle: 5,
+          cornerRadius: 15,
+          startAngle: 0,
+          endAngle: 300,
+          cx: 100,
+        },
+      ]}
+    />
+  );
+}

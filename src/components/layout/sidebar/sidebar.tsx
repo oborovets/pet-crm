@@ -11,14 +11,14 @@ import { ThemeToggleButton, Button } from '../../common';
 
 export default function Sidebar() {
   const ref = useRef<HTMLDivElement>(null);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen] = useState(false);
 
   const sx = {
+    backgroundColor: '#333',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'start',
-    backgroundColor: 'background.default',
     height: '100vh',
     borderRight: '1px solid white',
     px: 1,
@@ -41,7 +41,7 @@ export default function Sidebar() {
     }
   }, [isSidebarOpen]);
 
-  const onToggleSidebar = () => setIsSidebarOpen((prev) => !prev);
+  const onToggleSidebar = () => {};
 
   const text = isSidebarOpen ? 'Hide' : 'Show';
   const Icon = isSidebarOpen ? MenuOpenIcon : MenuIcon;
