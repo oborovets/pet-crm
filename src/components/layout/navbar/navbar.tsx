@@ -9,7 +9,7 @@ import { useSearchParams } from 'next/navigation';
 import type { Session } from '../../../types/session';
 
 type Props = {
-  session: Session;
+  session?: Session;
 };
 
 export default function Navbar({ session }: Props) {

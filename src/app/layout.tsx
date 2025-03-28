@@ -7,7 +7,6 @@ import Navbar from '@/components/layout/navbar/navbar';
 import Sidebar from '@/components/layout/sidebar/sidebar';
 
 import Providers from './providers';
-
 import { ThemeModeProvider } from '@/styles';
 import type { ThemeMode } from '@/types/theme';
 import { auth } from '../../auth';
