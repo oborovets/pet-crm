@@ -10,7 +10,7 @@ export default function Chart() {
   return (
     <PieChart
       width={200}
-      height={200}
+      height={211}
       slotProps={{
         legend: { hidden: true },
       }}

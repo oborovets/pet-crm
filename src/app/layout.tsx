@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 import { cookies } from 'next/headers';
 
 import { Box } from '@/components/common';
@@ -13,14 +13,9 @@ import { auth } from '../../auth';
 import { ThemeRegistry } from '../styles';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const roboto = Roboto({
   subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  weight: ['400', '700'], // Adjust as needed
 });
 
 export const metadata: Metadata = {
@@ -39,30 +34,15 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={roboto.className}>
         <ThemeModeProvider initialMode={themeMode}>
           <ThemeRegistry>
             <Providers>
-              <Box
-                sx={{
-                  height: '100vh',
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-              >
+              <Box>
                 <Navbar session={session} />
-                <Box sx={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
+                <Box>
                   <Sidebar />
-                  <Box
-                    sx={{
-                      flex: 1,
-                      pl: 15,
-                      pt: 5,
-                      backgroundColor: 'grey.500',
-                    }}
-                  >
+                  <Box pl={18} py={8} bgcolor="#e7e7e7">
                     {children}
                   </Box>
                 </Box>

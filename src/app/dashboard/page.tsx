@@ -1,8 +1,9 @@
-import { Card as MUICard, CardHeader } from '@mui/material';
+import { Alert, Divider } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import CheckIcon from '@mui/icons-material/Check';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
-import EventIcon from '@mui/icons-material/Event';
+import TaskIcon from '@mui/icons-material/Task';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import { RecentActivities, Card } from '@/components/sections';
 
 import { Box, Button, Typography } from '@/components/common';
@@ -10,29 +11,20 @@ import PieChart from '@/components/charts/pie';
 import LineChart from '@/components/charts/line';
 
 const HeaderTitle = () => (
-  <Box>
-    <Typography variant="h3">Monitor health of</Typography>
-    <Typography variant="h3">your business</Typography>
-    <Typography variant="body1">
-      Control and analyze your data in the easiest way
-    </Typography>
-  </Box>
+  <Typography variant="h3" fontWeight="bold">
+    Dashboard
+  </Typography>
 );
-
-const commonCardSX = {
-  borderRadius: '10px',
-  padding: 1.5,
-  transition: 'all 0.3s ease',
-  cursor: 'pointer',
-  '&:hover': {
-    transform: 'translateY(-4px)',
-    boxShadow: 6,
-  },
-};
 
 const CardsList = () => {
   return (
-    <>
+    <Box
+      sx={{
+        display: 'flex',
+        gap: 4,
+        my: 3,
+      }}
+    >
       <Card
         headerTitle="Tracked Hours"
         contentTitle="24"
@@ -46,7 +38,7 @@ const CardsList = () => {
         icon={WorkOutlineIcon}
       />
       <Card
-        headerTitle="Completed"
+        headerTitle="Completed Tasks"
         contentTitle="7"
         contentSubTitle="+1 since last week"
         icon={CheckIcon}
@@ -55,44 +47,61 @@ const CardsList = () => {
         headerTitle="Upcoming Tasks"
         contentTitle="3"
         contentSubTitle="2 due today"
-        icon={EventIcon}
+        icon={TaskIcon}
       />
-    </>
+      <Card
+        headerTitle="Critical Issues"
+        contentTitle="3"
+        contentSubTitle="2 need immediate attention"
+        icon={WarningAmberIcon}
+      />
+    </Box>
   );
 };
 
 export default function Dashboard() {
   return (
-    <Box sx={{ display: 'flex', gap: 7 }}>
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-        <HeaderTitle />
+    <Box sx={{ gap: 6, display: 'flex' }}>
+      <Box>
+        <Box display="flex" alignItems="center" justifyContent="space-between">
+          <HeaderTitle />
+          <Box
+            bgcolor="grey.200"
+            py={2}
+            px={3}
+            display="flex"
+            justifyContent="space-between"
+            gap={2}
+          >
+            <Button>Projects</Button>
+            <Button>Tasks</Button>
+            <Button>Notes</Button>
+          </Box>
+          <Alert severity="warning" sx={{ borderRadius: '12px', padding: 1 }}>
+            <Typography variant="subtitle1">
+              You haven&apos;t logged time for the past few days.
+            </Typography>
+          </Alert>
+        </Box>
+        <Divider sx={{ my: 3 }} />
+        <CardsList />
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'flex-start',
             gap: 4,
-            marginBottom: '20px',
+            alignItems: 'center',
           }}
         >
-          <CardsList />
-        </Box>
-        <Box sx={{ display: 'flex', gap: 4, height: '300px' }}>
-          <Box sx={{ flexGrow: 41 }}>
-            <MUICard elevation={8} sx={commonCardSX}>
-              <LineChart />
-            </MUICard>
+          <Box bgcolor="white">
+            <LineChart />
           </Box>
-          <Box sx={{ flexGrow: 1 }}>
-            <MUICard elevation={8} sx={{ ...commonCardSX, height: '100%' }}>
-              <CardHeader
-                title={<Typography variant="h6">Tasks</Typography>}
-                action={<Button>View Tasks</Button>}
-              />
-              <PieChart />
-            </MUICard>
+          <Box bgcolor="white">
+            <PieChart />
           </Box>
         </Box>
       </Box>
+      <Divider orientation="vertical" flexItem />
       <RecentActivities />
     </Box>
   );

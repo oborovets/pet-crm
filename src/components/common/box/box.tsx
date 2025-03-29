@@ -1,11 +1,18 @@
-import { Box as MUIBox, BoxProps } from '@mui/material';
+'use client';
 
-type Props = BoxProps;
+import { Box as MUIBox } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
-export default function Box({ children, sx, ...rest }: Props) {
-  return (
-    <MUIBox sx={{ ...sx }} {...rest}>
-      {children}
-    </MUIBox>
-  );
-}
+type Props = {
+  column?: true;
+  bgcolor?: string;
+};
+
+const StyledBox = styled(MUIBox)<Props>((props) => {
+  return {
+    backgroundColor: props?.bgcolor,
+    borderRadius: '12px',
+  };
+});
+
+export default StyledBox;

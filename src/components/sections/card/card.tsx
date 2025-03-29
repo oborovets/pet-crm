@@ -4,7 +4,6 @@ import {
   Card as MUICard,
   CardHeader,
   CardContent,
-  Box,
   IconButton,
   SvgIconProps,
   Badge,
@@ -12,11 +11,9 @@ import {
 
 import { Typography } from '../../common';
 
-import Link from 'next/link';
-
 type Props = {
   headerTitle: string;
-  heaaderSubTitle?: string;
+  subHeader?: string;
   contentTitle: string;
   contentSubTitle?: string;
   icon?: React.ElementType<SvgIconProps>;
@@ -25,69 +22,37 @@ type Props = {
 export default function Card({
   headerTitle,
   contentTitle,
-  heaaderSubTitle,
+  subHeader,
   contentSubTitle,
   icon: Icon,
 }: Props) {
-  const renderButtons = () => (
-    <Box
-      sx={{
-        padding: 1,
-      }}
-    >
-      <Link href="">
-        <IconButton>
-          {Icon && (
-            <Badge
-              sx={{
-                '& .MuiBadge-badge': {
-                  fontSize: '0.7rem',
-                  height: '18px',
-                  minWidth: '18px',
-                  padding: '0 6px',
-                },
-              }}
-              badgeContent={1}
-              color="primary"
-            >
-              <Icon fontSize="large" />
-            </Badge>
-          )}
-        </IconButton>
-      </Link>
-    </Box>
-  );
+  const badgeContent = Math.ceil(Math.random() * 10);
 
   return (
     <MUICard
-      elevation={8}
       sx={{
-        minWidth: '250px',
-        maxWidth: '350px',
-        borderRadius: '10px',
-        padding: 1.5,
-        transition: 'all 0.3s ease',
-        cursor: 'pointer',
-        '&:hover': {
-          transform: 'translateY(-4px)',
-          boxShadow: 6,
-        },
+        borderRadius: '12px',
+        padding: 1,
+        minWidth: '180px',
+        maxWidth: '220px',
       }}
     >
       <CardHeader
         title={<Typography variant="h6">{headerTitle}</Typography>}
         subheader={
-          <Typography variant="subtitle1">{heaaderSubTitle}</Typography>
+          subHeader && <Typography variant="subtitle1">{subHeader}</Typography>
         }
-        action={renderButtons()}
+        action={
+          Icon && (
+            <IconButton>
+              <Badge badgeContent={badgeContent} color="primary">
+                <Icon fontSize="large" />
+              </Badge>
+            </IconButton>
+          )
+        }
       />
-      <CardContent
-        sx={{
-          display: 'flex',
-          alignItems: 'end',
-          gap: 2,
-        }}
-      >
+      <CardContent>
         <Typography variant="h3">{contentTitle}</Typography>
         <Typography variant="body1">{contentSubTitle}</Typography>
       </CardContent>

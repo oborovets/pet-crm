@@ -3,12 +3,13 @@ import { Typography as MUITypography, TypographyProps } from '@mui/material';
 type Props = {
   variant: Extract<
     TypographyProps['variant'],
-    'h6' | 'h5' | 'h3' | 'subtitle1' | 'body1' | 'body2'
+    'h6' | 'h5' | 'h3' | 'h2' | 'subtitle1' | 'body1' | 'body2'
   >;
   children: React.ReactNode;
   visibility?: TypographyProps['visibility'];
   sx?: TypographyProps['sx'];
   color?: TypographyProps['color'];
+  fontWeight?: TypographyProps['fontWeight'];
 };
 
 export default function Typography({
@@ -17,9 +18,11 @@ export default function Typography({
   visibility = 'visible',
   sx,
   color = 'inherit',
+  fontWeight = 'normal',
 }: Props) {
   return (
     <MUITypography
+      fontWeight={fontWeight}
       visibility={visibility}
       color={color}
       variant={variant}
