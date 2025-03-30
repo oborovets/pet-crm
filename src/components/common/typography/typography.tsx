@@ -10,6 +10,7 @@ type Props = {
   sx?: TypographyProps['sx'];
   color?: TypographyProps['color'];
   fontWeight?: TypographyProps['fontWeight'];
+  display?: TypographyProps['display'];
 };
 
 export default function Typography({
@@ -19,9 +20,11 @@ export default function Typography({
   sx,
   color = 'inherit',
   fontWeight = 'normal',
+  display = '',
 }: Props) {
   return (
     <MUITypography
+      display={display}
       fontWeight={fontWeight}
       visibility={visibility}
       color={color}
