@@ -1,22 +1,33 @@
 'use client';
-import {} from '@mui/material';
-
-import GoogleIcon from '@mui/icons-material/Google';
+import { useState } from 'react';
+import { Divider, Menu, MenuItem } from '@mui/material';
+import { Logout, Google, AccountCircle, MoreVert } from '@mui/icons-material';
 import { signOut, signIn } from 'next-auth/react';
 
-import { Button, Avatar, Box } from '../../common';
+import { Button, Avatar, Box, IconButton } from '../../common';
 import { useSearchParams } from 'next/navigation';
 import type { Session } from '../../../types/session';
+import Link from 'next/link';
 
 type Props = {
   session?: Session;
 };
 
 export default function Navbar({ session }: Props) {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const searchParams = useSearchParams();
+
   const redirectTo = searchParams.get('callbackUrl') ?? '/';
+  const open = !!anchorEl;
 
   const isLoggedIn = !!session;
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <Box
@@ -25,20 +36,47 @@ export default function Navbar({ session }: Props) {
       justifyContent="flex-end"
       alignItems="center"
       borderRadius="0"
-      px={(theme) => theme.spacing(3)}
-      py={(theme) => theme.spacing(1.5)}
+      px={(t) => t.spacing(10)}
+      py={(t) => t.spacing(2.5)}
     >
       <Box>
         {isLoggedIn ? (
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Avatar src={session?.user?.image ?? undefined} />
-            <Button onClick={() => signOut({ redirectTo: '/' })}>
-              Log Out
-            </Button>
+            <Box display="flex">
+              <Avatar src={session?.user?.image ?? 'U'} />
+              <IconButton onClick={handleClick}>
+                <MoreVert />
+              </IconButton>
+            </Box>
+            <Menu
+              sx={{
+                padding: (t) => t.spacing(0, 12),
+              }}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              id="account-menu"
+              open={open}
+            >
+              <MenuItem>
+                <AccountCircle />
+                <Link href="/profile">Profile</Link>
+              </MenuItem>
+              <Divider />
+              <MenuItem
+                onClick={() => {
+                  handleClose();
+                  signOut();
+                }}
+              >
+                <Logout />
+                Logout
+              </MenuItem>
+            </Menu>
           </Box>
         ) : (
           <Button
-            icon={GoogleIcon}
+            variant="outlined"
+            icon={<Google />}
             onClick={() => signIn('google', { redirectTo })}
           >
             Sign Up With Google
@@ -48,3 +86,5 @@ export default function Navbar({ session }: Props) {
     </Box>
   );
 }
+
+// <Button onClick={() => signOut({ redirectTo: '/' })}>Log Out</Button>;

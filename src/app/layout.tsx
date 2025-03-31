@@ -38,13 +38,11 @@ export default async function RootLayout({
         <ThemeModeProvider initialMode={themeMode}>
           <ThemeRegistry>
             <Providers>
+              <Navbar session={session} />
+              <Sidebar />
               <Box>
-                <Navbar session={session} />
-                <Box>
-                  <Sidebar />
-                  <Box pl={18} py={8} bgcolor="#e7e7e7">
-                    {children}
-                  </Box>
+                <Box pl={18} py={8} bgcolor="#e7e7e7">
+                  {children}
                 </Box>
               </Box>
             </Providers>

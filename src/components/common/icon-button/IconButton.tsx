@@ -9,23 +9,23 @@ import {
 
 type Props = {
   tooltipTitle?: TooltipProps['title'];
+  placement?: TooltipProps['placement'];
 
   onClick?: IconButtonProps['onClick'];
-  icon: IconButtonProps['children'];
   children: IconButtonProps['children'];
   href?: string;
 };
 
 export default function IconButton({
   tooltipTitle,
-  icon,
+  children,
   onClick,
   href,
 }: Props) {
   return (
-    <Tooltip title={tooltipTitle}>
+    <Tooltip title={tooltipTitle} placement="right">
       <MUIIconButton onClick={onClick}>
-        {href ? <Link href={href}>{icon}</Link> : icon}
+        {href ? <Link href={href}>{children}</Link> : children}
       </MUIIconButton>
     </Tooltip>
   );

@@ -1,31 +1,40 @@
 'use client';
 
-import { Button as MUIButton, SvgIconProps } from '@mui/material';
+import { Button as MUIButton, ButtonProps } from '@mui/material';
 
 type Props = {
   children: string;
-  icon?: React.ComponentType<SvgIconProps>;
+  icon?: ButtonProps['endIcon'];
   loading?: boolean;
   disabled?: boolean;
-  onClick?: () => void;
+  onClick: ButtonProps['onClick'];
+  variant?: ButtonProps['variant'];
+  sx?: ButtonProps['sx'];
+  iconPlacement?: 'start' | 'end';
+  disableRipple?: true | false;
 };
 
 export default function Button({
   children,
-  icon: Icon,
+  icon: svgIcon = null,
   loading,
   disabled,
   onClick,
+  variant = 'contained',
+  iconPlacement = 'start',
   ...rest
 }: Props) {
+  const icon =
+    iconPlacement === 'start' ? { startIcon: svgIcon } : { endIcon: svgIcon };
+
   return (
     <MUIButton
       color="primary"
-      variant="contained"
+      variant={variant}
       disabled={disabled}
       loading={loading}
       onClick={onClick}
-      startIcon={Icon && <Icon color="primary" />}
+      {...icon}
       {...rest}
     >
       {children}
