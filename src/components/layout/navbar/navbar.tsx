@@ -1,10 +1,10 @@
 'use client';
-import { Box } from '@mui/material';
+import {} from '@mui/material';
 
 import GoogleIcon from '@mui/icons-material/Google';
 import { signOut, signIn } from 'next-auth/react';
 
-import { Button, Avatar } from '../../common';
+import { Button, Avatar, Box } from '../../common';
 import { useSearchParams } from 'next/navigation';
 import type { Session } from '../../../types/session';
 
@@ -20,16 +20,13 @@ export default function Navbar({ session }: Props) {
 
   return (
     <Box
-      component="nav"
-      sx={{
-        backgroundColor: '#333',
-        borderBottom: '1px solid #fff',
-        display: 'flex',
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-        py: 2,
-        px: 10,
-      }}
+      bgcolor="#333"
+      display="flex"
+      justifyContent="flex-end"
+      alignItems="center"
+      borderRadius="0"
+      px={(theme) => theme.spacing(3)}
+      py={(theme) => theme.spacing(1.5)}
     >
       <Box>
         {isLoggedIn ? (

@@ -4,14 +4,14 @@ import { Box as MUIBox } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 type Props = {
-  column?: true;
   bgcolor?: string;
+  borderRadius?: string;
 };
 
 const StyledBox = styled(MUIBox)<Props>((props) => {
   return {
     backgroundColor: props?.bgcolor,
-    borderRadius: '12px',
+    borderRadius: props.borderRadius ?? '12px',
   };
 });
 
