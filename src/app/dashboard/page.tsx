@@ -19,9 +19,13 @@ const HeaderTitle = () => (
 const CardsList = () => {
   return (
     <Box
+      display="flex"
+      flexWrap="wrap"
       sx={{
-        display: 'flex',
-        gap: 4,
+        gap: {
+          lg: 4,
+          md: 2,
+        },
         my: 3,
       }}
     >
@@ -55,15 +59,29 @@ const CardsList = () => {
         contentSubTitle="2 need immediate attention"
         icon={WarningAmberIcon}
       />
+      <Box bgcolor="white">
+        <LineChart />
+      </Box>
+      <Box bgcolor="white">
+        <PieChart />
+      </Box>
     </Box>
   );
 };
 
 export default function Dashboard() {
   return (
-    <Box sx={{ gap: 6, display: 'flex' }}>
-      <Box>
-        <Box display="flex" alignItems="center" justifyContent="space-between">
+    <Box
+      display="flex"
+      sx={{
+        gap: {
+          lg: 6,
+          md: 3,
+        },
+      }}
+    >
+      <Box width={'75%'}>
+        <Box display="flex" alignItems="center" justifyContent="flex-start">
           <HeaderTitle />
           <Box
             bgcolor="grey.200"
@@ -85,23 +103,7 @@ export default function Dashboard() {
         </Box>
         <Divider sx={{ my: 3 }} />
         <CardsList />
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'flex-start',
-            gap: 4,
-            alignItems: 'center',
-          }}
-        >
-          <Box bgcolor="white">
-            <LineChart />
-          </Box>
-          <Box bgcolor="white">
-            <PieChart />
-          </Box>
-        </Box>
       </Box>
-      <Divider orientation="vertical" flexItem />
       <RecentActivities />
     </Box>
   );

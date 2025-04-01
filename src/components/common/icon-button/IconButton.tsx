@@ -14,6 +14,7 @@ type Props = {
   onClick?: IconButtonProps['onClick'];
   children: IconButtonProps['children'];
   href?: string;
+  sx?: IconButtonProps['sx'];
 };
 
 export default function IconButton({
@@ -21,10 +22,11 @@ export default function IconButton({
   children,
   onClick,
   href,
+  sx,
 }: Props) {
   return (
     <Tooltip title={tooltipTitle} placement="right">
-      <MUIIconButton onClick={onClick}>
+      <MUIIconButton onClick={onClick} sx={sx}>
         {href ? <Link href={href}>{children}</Link> : children}
       </MUIIconButton>
     </Tooltip>

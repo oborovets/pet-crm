@@ -9,7 +9,7 @@ const data = [
 export default function Chart() {
   return (
     <PieChart
-      width={200}
+      width={220}
       height={211}
       slotProps={{
         legend: { hidden: true },

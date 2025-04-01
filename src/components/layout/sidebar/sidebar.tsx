@@ -6,10 +6,13 @@ import AddModeratorIcon from '@mui/icons-material/AddModerator';
 import { Box, IconButton } from '../../common';
 
 export default function Sidebar() {
-  const iconProps = {
+  const iconSxProps = {
     color: 'primary',
-    fontSize: 'large',
-  } as Partial<SvgIconProps>;
+    fontSize: {
+      md: '1rem',
+      lg: '2rem',
+    },
+  } as SvgIconProps['sx'];
 
   return (
     <Box
@@ -18,15 +21,24 @@ export default function Sidebar() {
       height="100vh"
       bgcolor="#333"
       position="fixed"
-      pt={(t) => t.spacing(11)}
+      sx={{
+        pt: {
+          md: 6,
+          lg: 11,
+        },
+        px: {
+          md: 1,
+          lg: 3,
+        },
+      }}
       px={(t) => t.spacing(2)}
     >
       <Box display="flex" flexDirection="column">
         <IconButton href="/" tooltipTitle="Root Page">
-          <DashboardIcon {...iconProps} />
+          <DashboardIcon sx={iconSxProps} />
         </IconButton>
         <IconButton href="/dashboard" tooltipTitle="Dashboard">
-          <AddModeratorIcon {...iconProps} />
+          <AddModeratorIcon sx={iconSxProps} />
         </IconButton>
       </Box>
     </Box>

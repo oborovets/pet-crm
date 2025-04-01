@@ -41,7 +41,16 @@ export default async function RootLayout({
               <Navbar session={session} />
               <Sidebar />
               <Box>
-                <Box pl={18} py={8} bgcolor="#e7e7e7">
+                <Box
+                  sx={{
+                    py: {
+                      lg: 8,
+                      md: 4,
+                    },
+                    pl: { md: 10, lg: 18 },
+                  }}
+                  bgcolor="#e7e7e7"
+                >
                   {children}
                 </Box>
               </Box>

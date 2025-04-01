@@ -36,8 +36,15 @@ export default function Navbar({ session }: Props) {
       justifyContent="flex-end"
       alignItems="center"
       borderRadius="0"
-      px={(t) => t.spacing(10)}
-      py={(t) => t.spacing(2.5)}
+      sx={{
+        px: {
+          md: 5,
+        },
+        py: {
+          md: 1,
+          lg: 2.5,
+        },
+      }}
     >
       <Box>
         {isLoggedIn ? (
@@ -88,3 +95,9 @@ export default function Navbar({ session }: Props) {
 }
 
 // <Button onClick={() => signOut({ redirectTo: '/' })}>Log Out</Button>;
+/* 
+sx={{
+        py: (t) => ({ [t.breakpoints.down('md')]: t.spacing(10) }),
+        px: (t) => ({ [t.breakpoints.down('md')]: t.spacing(10) }),
+}}
+*/
