@@ -33,6 +33,3 @@ Since this is a **pet project**, I dedicate time to it whenever possible, contin
 - **TypeScript** - Strong typing for better code maintainability.  
 
 ---
-
-💡 **Stay tuned for updates!**  
-🚀 **Feel free to reach out for collaboration:** [email@example.com](mailto:email@example.com)  
