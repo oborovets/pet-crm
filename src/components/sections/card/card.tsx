@@ -26,7 +26,7 @@ export default function Card({
   contentSubTitle,
   icon: Icon,
 }: Props) {
-  const badgeContent = Math.ceil(Math.random() * 10);
+  const badgeContent = 1;
 
   return (
     <MUICard

@@ -16,59 +16,6 @@ const HeaderTitle = () => (
   </Typography>
 );
 
-const CardsList = () => {
-  return (
-    <Box
-      display="flex"
-      flexWrap="wrap"
-      sx={{
-        gap: {
-          lg: 4,
-          md: 2,
-        },
-        my: 3,
-      }}
-    >
-      <Card
-        headerTitle="Tracked Hours"
-        contentTitle="24"
-        contentSubTitle="+3 last day"
-        icon={AccessTimeIcon}
-      />
-      <Card
-        headerTitle="Active Projects"
-        contentTitle="3"
-        contentSubTitle="One has pending status"
-        icon={WorkOutlineIcon}
-      />
-      <Card
-        headerTitle="Completed Tasks"
-        contentTitle="7"
-        contentSubTitle="+1 since last week"
-        icon={CheckIcon}
-      />
-      <Card
-        headerTitle="Upcoming Tasks"
-        contentTitle="3"
-        contentSubTitle="2 due today"
-        icon={TaskIcon}
-      />
-      <Card
-        headerTitle="Critical Issues"
-        contentTitle="3"
-        contentSubTitle="2 need immediate attention"
-        icon={WarningAmberIcon}
-      />
-      <Box bgcolor="white">
-        <LineChart />
-      </Box>
-      <Box bgcolor="white">
-        <PieChart />
-      </Box>
-    </Box>
-  );
-};
-
 export default function Dashboard() {
   return (
     <Box
@@ -102,7 +49,54 @@ export default function Dashboard() {
           </Alert>
         </Box>
         <Divider sx={{ my: 3 }} />
-        <CardsList />
+        <Box
+          display="flex"
+          flexWrap="wrap"
+          sx={{
+            gap: {
+              lg: 4,
+              md: 2,
+            },
+            my: 3,
+          }}
+        >
+          <Card
+            headerTitle="Tracked Hours"
+            contentTitle="24"
+            contentSubTitle="+3 last day"
+            icon={AccessTimeIcon}
+          />
+          <Card
+            headerTitle="Active Projects"
+            contentTitle="3"
+            contentSubTitle="One has pending status"
+            icon={WorkOutlineIcon}
+          />
+          <Card
+            headerTitle="Completed Tasks"
+            contentTitle="7"
+            contentSubTitle="+1 since last week"
+            icon={CheckIcon}
+          />
+          <Card
+            headerTitle="Upcoming Tasks"
+            contentTitle="3"
+            contentSubTitle="2 due today"
+            icon={TaskIcon}
+          />
+          <Card
+            headerTitle="Critical Issues"
+            contentTitle="3"
+            contentSubTitle="2 need immediate attention"
+            icon={WarningAmberIcon}
+          />
+          <Box bgcolor="white">
+            <LineChart />
+          </Box>
+          <Box bgcolor="white">
+            <PieChart />
+          </Box>
+        </Box>
       </Box>
       <RecentActivities />
     </Box>
