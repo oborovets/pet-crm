@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+📝 CRM System (Pet Project)
 
-## Getting Started
+🚀 Project Description
 
-First, run the development server:
+This is a personal CRM system project aimed at building a user-friendly tool for managing projects, tasks, and tracking progress.
+Since this is a pet project, I dedicate time to it whenever possible, continuously adding new features and improvements.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+⸻
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🌟 Planned Features:
+	•	Project Management: Create, edit, and archive projects.
+	•	Task Tracking: Monitor task status, priority, and assignees.
+	•	Reports and Analytics: Visualize performance data.
+	•	Integrations: Connect with third-party services.
+	•	Calendar and Reminders: Manage deadlines efficiently.
+	•	User Roles and Permissions: Set access levels for different users.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+⸻
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🔑 Current Functionality:
+	•	Google OAuth Authentication:
+	•	Users can log in using their Google accounts.
+	•	Available Routes:
+	•	/dashboard: Main dashboard with essential information and statistics.
+	•	/tickets: Page with a list of current tasks and their statuses.
 
-## Learn More
+⸻
 
-To learn more about Next.js, take a look at the following resources:
+📂 Tech Stack:
+	•	Next.js v15 - Framework for building fast and dynamic web applications.
+	•	React - Library for creating user interfaces.
+	•	Google OAuth - Secure user authentication.
+	•	TypeScript - Strong typing for better code maintainability.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+⸻
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+💡 Stay tuned for updates!
+🚀 Feel free to reach out for collaboration: email@example.com
