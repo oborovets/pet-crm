@@ -19,7 +19,7 @@ type TableProps = {
 };
 
 export type TableData = {
-  [key: string]: string | number;
+  [key: string]: string;
 };
 
 const Table = ({ columns, rows, title, isRowClickable }: TableProps) => {

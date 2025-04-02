@@ -3,11 +3,12 @@ import { Typography } from '@/components/common';
 import LoginComponent from '@/components/ui/login/login';
 
 type PageProps = {
-  searchParams?: Record<string, string | string[]>;
+  searchParams?: Promise<{ unauthorized: string }> | undefined;
 };
 
-export default function Login({ searchParams }: PageProps) {
-  const isUnauthorized = searchParams?.unauthorized === 'true';
+export default async function Login({ searchParams }: PageProps) {
+  const resolvedSearchParams = await searchParams;
+  const isUnauthorized = resolvedSearchParams?.unauthorized === 'true';
 
   return (
     <Box>

@@ -1,4 +1,4 @@
-import { Box, Typography, Avatar, Button } from '@/components/common';
+import { Box, Typography, Avatar } from '@/components/common';
 
 export default function Profile() {
   return (
@@ -40,22 +40,6 @@ export default function Profile() {
                   <Typography variant="h6" display="inline-block">
                     Joined 2024 April
                   </Typography>
-                </Box>
-                <Box>
-                  <Button>Go to?</Button>
-                  <Button>Edit Profile</Button>
-                </Box>
-                <Box>
-                  <Button>Go to?</Button>
-                  <Button>Edit Profile</Button>
-                </Box>
-                <Box>
-                  <Button>Go to?</Button>
-                  <Button>Edit Profile</Button>
-                </Box>
-                <Box>
-                  <Button>Go to?</Button>
-                  <Button>Edit Profile</Button>
                 </Box>
               </Box>
             </Box>

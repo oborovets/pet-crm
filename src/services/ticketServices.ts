@@ -55,7 +55,7 @@ const mockTicketList = {
   },
 };
 
-const mockTicketDetailsList = {
+const mockTicketDetailsList: Record<string, Ticket> = {
   'T-001': {
     id: 'T-001',
     title: 'Implement user authentication',
@@ -216,5 +216,5 @@ export const getTickets = async (): Promise<Response> => {
 export const getTicket = async (ticketId: string): Promise<Ticket> => {
   await wait(500);
 
-  return mockTicketDetailsList[ticketId];
+  return mockTicketDetailsList[ticketId as keyof typeof mockTicketDetailsList];
 };

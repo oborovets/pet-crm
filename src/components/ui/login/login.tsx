@@ -33,7 +33,7 @@ export default function Login() {
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             <Input name="email" placeholder="Email" />
             <Input name="password" placeholder="Password" type="password" />
-            <Button type="submit">Submit</Button>
+            <Button onClick={() => {}}>Submit</Button>
             <OAuthButtons />
           </Box>
         </form>
