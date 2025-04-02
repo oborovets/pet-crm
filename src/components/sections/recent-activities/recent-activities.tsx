@@ -5,17 +5,18 @@ import ActivityMessage from './activity-message';
 
 export default function RecentActivities() {
   return (
-    <Box p={4} bgcolor="white">
+    <Box p={4} bgcolor="white" borderRadius={4}>
       <Box
         display="flex"
         justifyContent="space-between"
         alignItems="center"
         py={1}
+        paddingBottom={2}
       >
         <Typography variant="h5">Recent Acivities</Typography>
         <NotificationsActiveOutlinedIcon fontSize="large" />
       </Box>
-      <Divider />
+      <Divider sx={{ marginBottom: 2 }} />
       {data.map((item) => (
         <ActivityMessage key={`${item.sender}_${item.message}`} {...item} />
       ))}
@@ -47,17 +48,5 @@ const data = [
     message: "Let's catch up tomorrow morning",
     time: '4:00 PM',
     date: 'Thursday',
-  },
-  {
-    sender: 'Emma Davis',
-    message: 'Client approved new proposal',
-    time: '10:15 AM',
-    date: 'Friday',
-  },
-  {
-    sender: 'Frank Turner',
-    message: 'Please update the timeline chart',
-    time: '1:25 PM',
-    date: 'Saturday',
   },
 ];

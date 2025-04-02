@@ -1,4 +1,5 @@
 import { PieChart } from '@mui/x-charts/PieChart';
+import { Box } from '../common';
 
 const data = [
   { id: 1, color: 'red', label: 'Group A', value: 400 },
@@ -8,24 +9,26 @@ const data = [
 
 export default function Chart() {
   return (
-    <PieChart
-      width={220}
-      height={211}
-      slotProps={{
-        legend: { hidden: true },
-      }}
-      series={[
-        {
-          data,
-          innerRadius: 30,
-          outerRadius: 90,
-          paddingAngle: 5,
-          cornerRadius: 15,
-          startAngle: 0,
-          endAngle: 300,
-          cx: 100,
-        },
-      ]}
-    />
+    <Box bgcolor="white" borderRadius={3}>
+      <PieChart
+        width={220}
+        height={211}
+        slotProps={{
+          legend: { hidden: true },
+        }}
+        series={[
+          {
+            data,
+            innerRadius: 30,
+            outerRadius: 90,
+            paddingAngle: 5,
+            cornerRadius: 15,
+            startAngle: 0,
+            endAngle: 300,
+            cx: 100,
+          },
+        ]}
+      />
+    </Box>
   );
 }

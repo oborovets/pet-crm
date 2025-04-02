@@ -42,11 +42,13 @@ export default async function RootLayout({
               <Sidebar />
               <Box
                 sx={{
+                  minHeight: '100vh',
                   py: {
                     lg: 8,
                     md: 4,
                   },
                   pl: { md: 10, lg: 18 },
+                  pr: { md: 4 },
                 }}
                 bgcolor="#e7e7e7"
               >
