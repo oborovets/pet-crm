@@ -10,7 +10,7 @@ import type { Session } from '../../../types/session';
 import Link from 'next/link';
 
 type Props = {
-  session?: Session;
+  session: Session | null;
 };
 
 export default function Navbar({ session }: Props) {

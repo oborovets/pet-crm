@@ -33,7 +33,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={roboto.className} style={{ backgroundColor: '#e7e7e7' }}>
         <ThemeProvider theme={theme}>
           <AppRouterCacheProvider options={{ key: 'css' }}>
             <CssBaseline />
@@ -42,7 +42,6 @@ export default async function RootLayout({
               <Sidebar />
               <Box
                 sx={{
-                  minHeight: '100vh',
                   py: {
                     lg: 8,
                     md: 4,
