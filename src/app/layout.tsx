@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   description: 'Small app',
 };
 
+// TODO: Optimize
 export default async function RootLayout({
   children,
 }: Readonly<{

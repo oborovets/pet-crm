@@ -6,5 +6,6 @@ export { default as Input } from './input/input';
 export { default as Typography } from './typography/typography';
 export { default as Table } from './table/table';
 export { default as SvgIcon } from './svg-icon/svg-icon';
+export { default as TextField } from './text-field/text-field';
 
 export * from './icons';
