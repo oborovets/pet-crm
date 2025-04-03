@@ -2,7 +2,7 @@
 import { Box } from '@mui/material';
 import { useForm, FormProvider } from 'react-hook-form';
 import { Button, Input } from '../../common';
-import OAuthButtons from '@/components/auth/oauth-buttons';
+import GoogleOAuth from '@/components/oauth-buttons/google-oauth';
 
 type FormValues = {
   email: string;
@@ -33,8 +33,23 @@ export default function Login() {
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             <Input name="email" placeholder="Email" />
             <Input name="password" placeholder="Password" type="password" />
-            <Button onClick={() => {}}>Submit</Button>
-            <OAuthButtons />
+            <div style={{ cursor: 'wait' }}>
+              <Button onClick={() => {}} disabled sx={{ width: '100%' }}>
+                Sign Up with an Email
+                <span
+                  style={{
+                    paddingLeft: '16px',
+                    fontSize: '.65rem',
+                    color: 'white',
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  in progress. please login with G
+                </span>
+              </Button>
+            </div>
+            <GoogleOAuth />
           </Box>
         </form>
       </FormProvider>

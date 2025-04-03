@@ -3,7 +3,7 @@
 import { Button as MUIButton, ButtonProps } from '@mui/material';
 
 type Props = {
-  children: string;
+  children: ButtonProps['children'];
   icon?: ButtonProps['endIcon'];
   loading?: boolean;
   disabled?: boolean;

@@ -31,5 +31,3 @@ Since this is a **pet project**, I dedicate time to it whenever possible, contin
 - **React** - Library for creating user interfaces.  
 - **Google OAuth** - Secure user authentication.  
 - **TypeScript** - Strong typing for better code maintainability.  
-
----

@@ -1,23 +1,21 @@
 'use client';
 import { useState } from 'react';
 import { Divider, Menu, MenuItem } from '@mui/material';
-import { Logout, Google, AccountCircle, MoreVert } from '@mui/icons-material';
-import { signOut, signIn } from 'next-auth/react';
+import { Logout, AccountCircle, MoreVert } from '@mui/icons-material';
+import { signOut } from 'next-auth/react';
 
-import { Button, Avatar, Box, IconButton } from '../../common';
-import { useSearchParams } from 'next/navigation';
+import { Avatar, Box, IconButton } from '../../common';
+import GoogleOAuth from '@/components/oauth-buttons/google-oauth';
 import type { Session } from '../../../types/session';
 import Link from 'next/link';
 
 type Props = {
   session: Session | null;
 };
-
+// TODO: Convert to Server Component
 export default function Navbar({ session }: Props) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const searchParams = useSearchParams();
 
-  const redirectTo = searchParams.get('callbackUrl') ?? '/';
   const open = !!anchorEl;
 
   const isLoggedIn = !!session;
@@ -64,15 +62,15 @@ export default function Navbar({ session }: Props) {
               id="account-menu"
               open={open}
             >
-              <MenuItem>
+              <MenuItem onClick={() => handleClose()}>
                 <AccountCircle />
                 <Link href="/profile">Profile</Link>
               </MenuItem>
               <Divider />
               <MenuItem
-                onClick={() => {
+                onClick={async () => {
                   handleClose();
-                  signOut();
+                  await signOut({ redirectTo: '/login' });
                 }}
               >
                 <Logout />
@@ -81,23 +79,9 @@ export default function Navbar({ session }: Props) {
             </Menu>
           </Box>
         ) : (
-          <Button
-            variant="outlined"
-            icon={<Google />}
-            onClick={() => signIn('google', { redirectTo })}
-          >
-            Sign Up With Google
-          </Button>
+          <GoogleOAuth />
         )}
       </Box>
     </Box>
   );
 }
-
-// <Button onClick={() => signOut({ redirectTo: '/' })}>Log Out</Button>;
-/* 
-sx={{
-        py: (t) => ({ [t.breakpoints.down('md')]: t.spacing(10) }),
-        px: (t) => ({ [t.breakpoints.down('md')]: t.spacing(10) }),
-}}
-*/
