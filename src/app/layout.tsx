@@ -1,15 +1,14 @@
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 
-import { Box } from '@/components/common';
 import Navbar from '@/components/layout/navbar/navbar';
-import Sidebar from '@/components/layout/sidebar/sidebar';
 
 import RootProivder from '@/context/root-provider';
 
 import { auth } from '../../auth';
 
 import './globals.css';
+import { Container } from '@mui/material';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -30,23 +29,19 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={roboto.className} style={{ backgroundColor: '#ede9e4' }}>
+      <body
+        className={roboto.className}
+        style={{
+          minHeight: '100vh',
+          width: 'auto',
+          backgroundColor: '#ede9e4',
+        }}
+      >
         <RootProivder>
           <Navbar session={session} />
-          <Sidebar />
-          <Box
-            sx={{
-              py: {
-                lg: 8,
-                md: 4,
-              },
-              pl: { md: 10, lg: 18 },
-              pr: { md: 4 },
-            }}
-            bgcolor="#ede9e4"
-          >
+          <Container maxWidth="lg" sx={{ mt: 4 }}>
             {children}
-          </Box>
+          </Container>
         </RootProivder>
       </body>
     </html>

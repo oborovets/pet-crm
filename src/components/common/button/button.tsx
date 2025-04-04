@@ -12,6 +12,7 @@ type Props = {
   sx?: ButtonProps['sx'];
   iconPlacement?: 'start' | 'end';
   disableRipple?: true | false;
+  size?: ButtonProps['size'];
 };
 
 export default function Button({
@@ -22,6 +23,7 @@ export default function Button({
   onClick,
   variant = 'contained',
   iconPlacement = 'start',
+  size,
   ...rest
 }: Props) {
   const icon =
@@ -29,6 +31,7 @@ export default function Button({
 
   return (
     <MUIButton
+      size={size}
       color="primary"
       variant={variant}
       disabled={disabled}

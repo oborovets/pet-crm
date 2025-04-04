@@ -1,10 +1,10 @@
 'use client';
 import { useState } from 'react';
-import { Divider, Menu, MenuItem } from '@mui/material';
-import { Logout, AccountCircle, MoreVert } from '@mui/icons-material';
+import { Divider, Menu, MenuItem, Stack } from '@mui/material';
+import { OpenInNew } from '@mui/icons-material';
 import { signOut } from 'next-auth/react';
 
-import { Avatar, Box, IconButton } from '../../common';
+import { Avatar, Box, Button, IconButton, Typography } from '../../common';
 import GoogleOAuth from '@/components/oauth-buttons/google-oauth';
 import type { Session } from '../../../types/session';
 import Link from 'next/link';
@@ -27,53 +27,93 @@ export default function Navbar({ session }: Props) {
     setAnchorEl(null);
   };
 
+  const handleSignOut = async () => {
+    handleClose();
+    signOut({ redirectTo: '/login' });
+  };
+
+  const UserAvatar = () => (
+    <Avatar
+      src={session?.user?.image ?? 'U'}
+      sx={{
+        height: '32px',
+        width: '32px',
+      }}
+    />
+  );
+
+  const renderLeftSection = (isLoggedIn: boolean) => {
+    return (
+      isLoggedIn && (
+        <Stack direction="row" position="relative" left={100}>
+          <Button onClick={() => {}} variant="text">
+            <Link href="/dashboard">Dashboard</Link>
+          </Button>
+        </Stack>
+      )
+    );
+  };
+
   return (
     <Box
       bgcolor="#333"
       display="flex"
-      justifyContent="flex-end"
+      justifyContent="space-between"
       alignItems="center"
       borderRadius="0"
-      sx={{
-        px: {
-          md: 5,
-        },
-        py: {
-          md: 1,
-          lg: 2.5,
-        },
-      }}
+      px={4}
     >
+      <Box>{renderLeftSection(isLoggedIn)}</Box>
       <Box>
         {isLoggedIn ? (
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Box display="flex">
-              <Avatar src={session?.user?.image ?? 'U'} />
+            <Box display="flex" alignItems="center">
               <IconButton onClick={handleClick}>
-                <MoreVert />
+                <UserAvatar />
               </IconButton>
             </Box>
             <Menu
-              sx={{
-                padding: (t) => t.spacing(0, 12),
-              }}
               anchorEl={anchorEl}
               onClose={handleClose}
-              id="account-menu"
               open={open}
+              sx={{ minWidth: '240px' }}
             >
-              <MenuItem onClick={() => handleClose()}>
-                <AccountCircle />
-                <Link href="/profile">Profile</Link>
-              </MenuItem>
-              <Divider />
               <MenuItem
-                onClick={async () => {
-                  handleClose();
-                  await signOut({ redirectTo: '/login' });
+                disableRipple
+                sx={{ ':hover': { background: 'none', cursor: 'auto' } }}
+              >
+                <Typography variant="body2">Account</Typography>
+              </MenuItem>
+              <MenuItem
+                disableRipple
+                sx={{
+                  display: 'flex',
+                  gap: 1,
+                  ':hover': { background: 'none', cursor: 'auto' },
                 }}
               >
-                <Logout />
+                <UserAvatar />
+                <Box>
+                  <Typography variant="body1">{session?.user?.name}</Typography>
+                  <Typography variant="body2">
+                    {session?.user?.email}
+                  </Typography>
+                </Box>
+              </MenuItem>
+              <MenuItem
+                onClick={() => handleClose()}
+                sx={{
+                  mb: 1,
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  height: '2.5rem',
+                }}
+              >
+                <Link href="/profile">Manage Account</Link>
+                <OpenInNew fontSize="small" />
+              </MenuItem>
+              <Divider />
+              <MenuItem onClick={handleSignOut} sx={{ height: '2.5rem' }}>
                 Logout
               </MenuItem>
             </Menu>
