@@ -8,13 +8,17 @@ import { Avatar, Box, Button, IconButton, Typography } from '../../common';
 import GoogleOAuth from '@/components/oauth-buttons/google-oauth';
 import type { Session } from '../../../types/session';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 type Props = {
   session: Session | null;
 };
-// TODO: Convert to Server Component
+// TODO: Convert to Server Component as much as possible
 export default function Navbar({ session }: Props) {
+  const [loading, setLoading] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  const pathname = usePathname();
 
   const open = !!anchorEl;
 
@@ -28,8 +32,8 @@ export default function Navbar({ session }: Props) {
   };
 
   const handleSignOut = async () => {
-    handleClose();
-    signOut({ redirectTo: '/login' });
+    setLoading(true);
+    await signOut({ redirectTo: '/login' });
   };
 
   const UserAvatar = () => (
@@ -54,6 +58,7 @@ export default function Navbar({ session }: Props) {
     );
   };
 
+  const isLoginPage = pathname === '/login';
   return (
     <Box
       bgcolor="#333"
@@ -62,6 +67,7 @@ export default function Navbar({ session }: Props) {
       alignItems="center"
       borderRadius="0"
       px={4}
+      height={48}
     >
       <Box>{renderLeftSection(isLoggedIn)}</Box>
       <Box>
@@ -114,12 +120,18 @@ export default function Navbar({ session }: Props) {
               </MenuItem>
               <Divider />
               <MenuItem onClick={handleSignOut} sx={{ height: '2.5rem' }}>
-                Logout
+                {loading ? (
+                  <Typography variant="body1" color="grey">
+                    Processing...
+                  </Typography>
+                ) : (
+                  <Typography variant="body1">Logout</Typography>
+                )}
               </MenuItem>
             </Menu>
           </Box>
         ) : (
-          <GoogleOAuth />
+          !isLoginPage && <GoogleOAuth size="small" />
         )}
       </Box>
     </Box>
