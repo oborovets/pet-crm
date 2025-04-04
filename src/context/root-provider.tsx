@@ -1,6 +1,5 @@
 'use client';
 
-import { LoadingProvider } from './loading-context';
 import MUIProvider from './mui-context';
 
 export default function RootProivder({
@@ -8,9 +7,5 @@ export default function RootProivder({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <LoadingProvider>
-      <MUIProvider>{children}</MUIProvider>
-    </LoadingProvider>
-  );
+  return <MUIProvider>{children}</MUIProvider>;
 }

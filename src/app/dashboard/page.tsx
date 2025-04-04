@@ -11,8 +11,6 @@ import PieChart from '@/components/charts/pie';
 import LineChart from '@/components/charts/line';
 
 export default async function Dashboard() {
-  await new Promise((r) => setTimeout(() => r(true), 800));
-
   return (
     <Box display="flex" flexDirection="column">
       <Box>
