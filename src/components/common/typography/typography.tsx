@@ -1,7 +1,7 @@
 import { Typography as MUITypography, TypographyProps } from '@mui/material';
 
 type Props = {
-  variant: Extract<
+  variant?: Extract<
     TypographyProps['variant'],
     'h6' | 'h5' | 'h4' | 'h3' | 'h2' | 'subtitle1' | 'body1' | 'body2'
   >;
@@ -14,7 +14,7 @@ type Props = {
 };
 
 export default function Typography({
-  variant,
+  variant = 'h6',
   children,
   visibility = 'visible',
   sx,

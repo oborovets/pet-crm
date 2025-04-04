@@ -30,7 +30,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={roboto.className} style={{ backgroundColor: '#e7e7e7' }}>
+      <body className={roboto.className} style={{ backgroundColor: '#ede9e4' }}>
         <RootProivder>
           <Navbar session={session} />
           <Sidebar />
@@ -43,7 +43,7 @@ export default async function RootLayout({
               pl: { md: 10, lg: 18 },
               pr: { md: 4 },
             }}
-            bgcolor="#e7e7e7"
+            bgcolor="#ede9e4"
           >
             {children}
           </Box>

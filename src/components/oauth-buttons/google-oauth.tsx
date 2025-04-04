@@ -4,7 +4,11 @@ import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
 import { Button, GoogleSvgIcon } from '../common';
 
-export default function GoogleOAuth() {
+type Props = {
+  children?: React.ReactNode | string;
+};
+
+export default function GoogleOAuth({ children }: Props) {
   const [loading, setLoading] = useState(false);
   const searchParams = useSearchParams();
 
@@ -27,7 +31,7 @@ export default function GoogleOAuth() {
       iconPlacement="start"
       onClick={handleClick}
     >
-      Sign Up With Google
+      {children ? children : 'Sign Up With Google'}
     </Button>
   );
 }
