@@ -1,4 +1,3 @@
-'use client';
 import { Typography, Avatar, Box } from '@/components/common';
 
 type Props = {
