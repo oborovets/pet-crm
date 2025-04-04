@@ -7,7 +7,7 @@ type Props = {
   icon?: ButtonProps['endIcon'];
   loading?: boolean;
   disabled?: boolean;
-  onClick: ButtonProps['onClick'];
+  onClick?: ButtonProps['onClick'];
   variant?: ButtonProps['variant'];
   sx?: ButtonProps['sx'];
   iconPlacement?: 'start' | 'end';

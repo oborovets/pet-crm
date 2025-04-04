@@ -1,19 +1,20 @@
 'use client';
 import { useState } from 'react';
-import { Divider, Menu, MenuItem, Stack } from '@mui/material';
-import { OpenInNew } from '@mui/icons-material';
 import { signOut } from 'next-auth/react';
-
-import { Avatar, Box, Button, IconButton, Typography } from '../../common';
-import GoogleOAuth from '@/components/oauth-buttons/google-oauth';
-import type { Session } from '../../../types/session';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+
+import { Divider, Menu, MenuItem, Stack } from '@mui/material';
+import { OpenInNew } from '@mui/icons-material';
+
+import { Avatar, Box, Button, IconButton, Typography } from '../../common';
+
+import type { Session } from '../../../types/session';
 
 type Props = {
   session: Session | null;
 };
-// TODO: Convert to Server Component as much as possible
+
 export default function Navbar({ session }: Props) {
   const [loading, setLoading] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -47,14 +48,28 @@ export default function Navbar({ session }: Props) {
   );
 
   const renderLeftSection = (isLoggedIn: boolean) => {
+    const aboutUsLink = pathname !== '/' && (
+      <Button
+        variant="text"
+        sx={{ color: 'white', position: 'relative', left: 100 }}
+      >
+        <Link href="/">About Us</Link>
+      </Button>
+    );
+
+    const authorizedLinks = isLoggedIn && (
+      <>
+        <Button variant="text" sx={{ color: 'white' }}>
+          <Link href="/dashboard">Dashboard</Link>
+        </Button>
+      </>
+    );
+
     return (
-      isLoggedIn && (
-        <Stack direction="row" position="relative" left={100}>
-          <Button onClick={() => {}} variant="text">
-            <Link href="/dashboard">Dashboard</Link>
-          </Button>
-        </Stack>
-      )
+      <Stack direction="row" position="relative" left={100}>
+        {authorizedLinks}
+        {aboutUsLink}
+      </Stack>
     );
   };
 
@@ -131,7 +146,11 @@ export default function Navbar({ session }: Props) {
             </Menu>
           </Box>
         ) : (
-          !isLoginPage && <GoogleOAuth size="small" />
+          !isLoginPage && (
+            <Button size="small">
+              <Link href="/login">Get Started</Link>
+            </Button>
+          )
         )}
       </Box>
     </Box>

@@ -1,14 +1,14 @@
-import { Box, Typography } from '@/components/common';
-import GoogleOAuth from '@/components/oauth-buttons/google-oauth';
-import { Divider } from '@mui/material';
 import Image from 'next/image';
+import { Divider } from '@mui/material';
+
+import { Box, Typography } from '@/components/common';
 
 export default function Home() {
   return (
     <Box
       display="flex"
       px="10%"
-      pt="1%"
+      pt="5%"
       gap={10}
       bgcolor="#ede9e4"
       borderRadius={10}
@@ -49,11 +49,6 @@ export default function Home() {
           Experience a CRM that adapts to your business needs. Sign up now for a
           free trial and see how easy customer relationship management can be.
         </Typography>
-        <Box sx={{ mt: '16px' }}>
-          <GoogleOAuth>
-            <Typography>Get Started!</Typography>
-          </GoogleOAuth>
-        </Box>
       </Box>
       <Divider orientation="vertical" flexItem />
       <Box width="50%" display="flex" alignItems="center">
