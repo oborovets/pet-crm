@@ -1,13 +1,5 @@
 'use client';
-import { useState } from 'react';
-import CreateIcon from '@mui/icons-material/Create';
-import {
-  Typography,
-  Avatar,
-  Box,
-  TextField,
-  IconButton,
-} from '@/components/common';
+import { Typography, Avatar, Box } from '@/components/common';
 
 type Props = {
   userImage?: string | null;
@@ -16,10 +8,6 @@ type Props = {
 };
 
 export default function ProfileCard({ userImage, userName, role }: Props) {
-  const [isEditing, setIsEditing] = useState(false);
-  const [userRole, setUserRole] = useState(role);
-  const toggleEditing = () => setIsEditing((prev) => !prev);
-
   return (
     <Box
       display="flex"
@@ -27,7 +15,7 @@ export default function ProfileCard({ userImage, userName, role }: Props) {
       flexDirection="column"
       sx={{
         position: 'relative',
-        top: '-65px',
+        top: '-50px',
       }}
     >
       <Avatar
@@ -35,27 +23,18 @@ export default function ProfileCard({ userImage, userName, role }: Props) {
         sx={{
           backgroundColor: 'white',
           border: '15px solid white',
-          height: '128px',
-          width: '128px',
+          height: '96px',
+          width: '96px',
         }}
       />
-      <Typography variant="h3">{userName}</Typography>
-      <Box display="flex" alignItems="center" height={35}>
-        {isEditing ? (
-          <TextField
-            fullWidth
-            value={userRole}
-            onChange={(e) => setUserRole(e.target.value)}
-          />
-        ) : (
-          <Typography variant="h5">{userRole}</Typography>
-        )}
-        <IconButton
-          sx={{ position: 'relative', left: 5 }}
-          onClick={toggleEditing}
-        >
-          <CreateIcon />
-        </IconButton>
+      <Typography variant="h4">{userName}</Typography>
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        height={35}
+      >
+        <Typography variant="h6">{role}</Typography>
       </Box>
       <Box display="flex">
         <Typography variant="subtitle1" display="inline-block">

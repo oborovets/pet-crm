@@ -4,12 +4,9 @@ import { Roboto } from 'next/font/google';
 import { Box } from '@/components/common';
 import Navbar from '@/components/layout/navbar/navbar';
 import Sidebar from '@/components/layout/sidebar/sidebar';
-import CssBaseline from '@mui/material/CssBaseline';
 
-import theme from '@/styles/theme';
-import Providers from './providers';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import { ThemeProvider } from '@mui/material/styles';
+import RootProivder from '@/context/root-provider';
+
 import { auth } from '../../auth';
 
 import './globals.css';
@@ -24,7 +21,6 @@ export const metadata: Metadata = {
   description: 'Small app',
 };
 
-// TODO: Optimize
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -35,28 +31,23 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className} style={{ backgroundColor: '#e7e7e7' }}>
-        <ThemeProvider theme={theme}>
-          <AppRouterCacheProvider options={{ key: 'css' }}>
-            <CssBaseline />
-            <Providers>
-              <Navbar session={session} />
-              <Sidebar />
-              <Box
-                sx={{
-                  py: {
-                    lg: 8,
-                    md: 4,
-                  },
-                  pl: { md: 10, lg: 18 },
-                  pr: { md: 4 },
-                }}
-                bgcolor="#e7e7e7"
-              >
-                {children}
-              </Box>
-            </Providers>
-          </AppRouterCacheProvider>
-        </ThemeProvider>
+        <RootProivder>
+          <Navbar session={session} />
+          <Sidebar />
+          <Box
+            sx={{
+              py: {
+                lg: 8,
+                md: 4,
+              },
+              pl: { md: 10, lg: 18 },
+              pr: { md: 4 },
+            }}
+            bgcolor="#e7e7e7"
+          >
+            {children}
+          </Box>
+        </RootProivder>
       </body>
     </html>
   );

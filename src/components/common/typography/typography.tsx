@@ -3,7 +3,7 @@ import { Typography as MUITypography, TypographyProps } from '@mui/material';
 type Props = {
   variant: Extract<
     TypographyProps['variant'],
-    'h6' | 'h5' | 'h3' | 'h2' | 'subtitle1' | 'body1' | 'body2'
+    'h6' | 'h5' | 'h4' | 'h3' | 'h2' | 'subtitle1' | 'body1' | 'body2'
   >;
   children: React.ReactNode;
   visibility?: TypographyProps['visibility'];
