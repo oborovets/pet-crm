@@ -128,6 +128,7 @@ export default function Navbar({ session }: Props) {
                   display: 'flex',
                   justifyContent: 'space-between',
                   height: '2.5rem',
+                  color: 'black',
                 }}
               >
                 <Link href="/profile">Manage Account</Link>
