@@ -1,6 +1,6 @@
 # 📝 **CRM System (Pet Project)**
 
-[Link to CRM](pet-crm.vercel.app)
+[Link to CRM](https://pet-crm.vercel.app/)
 
 ## 🚀 **Project Description**
 
