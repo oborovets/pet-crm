@@ -45,13 +45,15 @@ export default async function Dashboard() {
             icon={WorkOutlineIcon}
           />
           <Card
-            headerTitle="Completed Tasks"
+            route="/tickets"
+            headerTitle="Completed Tickets"
             contentTitle="7"
             contentSubTitle="+1 since last week"
             icon={CheckIcon}
           />
           <Card
-            headerTitle="Upcoming Tasks"
+            route="/tickets"
+            headerTitle="Upcoming Tickets"
             contentTitle="3"
             contentSubTitle="2 due today"
             icon={TaskIcon}

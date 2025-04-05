@@ -34,7 +34,7 @@ export default function Login() {
             <Input name="email" placeholder="Email" />
             <Input name="password" placeholder="Password" type="password" />
             <div style={{ cursor: 'wait' }}>
-              <Button onClick={() => {}} disabled sx={{ width: '100%' }}>
+              <Button disabled sx={{ width: '100%' }}>
                 Sign Up with an Email
                 <span
                   style={{

@@ -24,7 +24,7 @@ export default async function Tickets() {
           isRowClickable
           columns={columns}
           rows={Object.values(tickets)}
-          title="Task List"
+          title="Ticket List"
         />
       </Box>
       <TicketDescription />

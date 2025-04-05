@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 
 import { Typography } from '../../common';
+import Link from 'next/link';
 
 type Props = {
   headerTitle: string;
@@ -17,6 +18,7 @@ type Props = {
   contentTitle: string;
   contentSubTitle?: string;
   icon?: React.ElementType<SvgIconProps>;
+  route?: string;
 };
 
 export default function Card({
@@ -25,6 +27,7 @@ export default function Card({
   subHeader,
   contentSubTitle,
   icon: Icon,
+  route,
 }: Props) {
   const badgeContent = 1;
 
@@ -33,21 +36,22 @@ export default function Card({
       sx={{
         borderRadius: '12px',
         padding: 1,
-        minWidth: '180px',
-        maxWidth: '220px',
+        width: 220,
       }}
     >
       <CardHeader
         title={<Typography variant="h6">{headerTitle}</Typography>}
         subheader={
-          subHeader && <Typography variant="subtitle1">{subHeader}</Typography>
+          subHeader && <Typography variant="subtitle1">{'xxx'}</Typography>
         }
         action={
           Icon && (
             <IconButton>
-              <Badge badgeContent={badgeContent} color="primary">
-                <Icon fontSize="large" />
-              </Badge>
+              <Link href={route ?? ''} style={{ color: 'inherit' }}>
+                <Badge badgeContent={badgeContent} color="primary">
+                  <Icon fontSize="large" />
+                </Badge>
+              </Link>
             </IconButton>
           )
         }

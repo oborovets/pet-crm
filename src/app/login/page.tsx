@@ -11,7 +11,7 @@ export default async function Login({ searchParams }: PageProps) {
   const isUnauthorized = resolvedSearchParams?.unauthorized === 'true';
 
   return (
-    <Box>
+    <Box sx={{ mt: '7%' }}>
       {isUnauthorized && (
         <Alert severity="warning">
           <AlertTitle>Access Denied</AlertTitle>

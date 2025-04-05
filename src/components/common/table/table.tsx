@@ -4,12 +4,11 @@ import {
   TableCell,
   TableHead,
   TableBody,
-  Paper,
 } from '@mui/material';
 import TableRow from './table-row';
-import { Typography } from '../';
 
 import type { TableColumn } from '../../../types/table';
+import TableToolbar from './table-toolbar';
 
 type TableProps = {
   isRowClickable?: boolean;
@@ -24,13 +23,9 @@ export type TableData = {
 
 const Table = ({ columns, rows, title, isRowClickable }: TableProps) => {
   return (
-    <TableContainer component={Paper} sx={{ maxHeight: 400 }}>
-      {title && (
-        <Typography variant="h5" sx={{ padding: 2 }}>
-          {title}
-        </Typography>
-      )}
-      <MUITable stickyHeader>
+    <TableContainer sx={{ backgroundColor: 'transparent' }}>
+      <TableToolbar title={title} />
+      <MUITable sx={{ backgroundColor: 'white', borderRadius: 2 }}>
         <TableHead>
           <TableRow>
             {columns.map((column, idx) => (

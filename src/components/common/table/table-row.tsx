@@ -30,7 +30,6 @@ export default function TableRow({
     });
 
     window.history.pushState({}, '', url.toString());
-    window.history.pushState({}, '');
   };
 
   return (
